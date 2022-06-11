@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: nemodb
+    volumes:
+      - nemodb:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    container_name: postgres_nemo_db
+
+volumes:
+  nemodb:
