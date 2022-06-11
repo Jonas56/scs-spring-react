@@ -8,6 +8,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor(staticName = "build")
 public class AuthDto {
-    private String access_token;
-    private String refresh_token;
+    private String accessToken;
+    private String username;
 }
