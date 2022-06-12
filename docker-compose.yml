@@ -3,17 +3,16 @@ version: '3.1'
 services:
 
   db:
-    image: postgres
+    image: mysql
     restart: unless-stopped
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: nemodb
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: nemodb
     volumes:
-      - nemodb:/var/lib/postgresql/data
+      - nemo_mysql:/var/lib/mysql
     ports:
-      - "5432:5432"
-    container_name: postgres_nemo_db
+      - "3306:3306"
+    container_name: mysql_nemo_db
 
 volumes:
-  nemodb:
+  nemo_mysql:
