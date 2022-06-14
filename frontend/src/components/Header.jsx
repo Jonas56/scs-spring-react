@@ -16,6 +16,7 @@
 */
 import { Fragment, useState } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
+import ShoppingCart from "./ShoppingCart";
 import {
   MenuIcon,
   SearchIcon,
@@ -157,6 +158,7 @@ function classNames(...classes) {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
 
   return (
     <div className="bg-white">
@@ -541,10 +543,11 @@ export default function Header() {
                 </div>
 
                 {/* Cart */}
+                {cartOpen && <ShoppingCart />}
                 <div className="ml-4 flow-root lg:ml-6">
-                  <a
-                    href="http://localhost:3000/#"
+                  <button
                     className="group -m-2 p-2 flex items-center"
+                    onClick={() => setCartOpen(!cartOpen)}
                   >
                     <ShoppingBagIcon
                       className="flex-shrink-0 h-6 w-6 text-gray-400 group-hover:text-gray-500"
@@ -554,7 +557,7 @@ export default function Header() {
                       0
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
