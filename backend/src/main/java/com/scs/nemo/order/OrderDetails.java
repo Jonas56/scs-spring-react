@@ -30,4 +30,10 @@ public class OrderDetails {
     private Integer quantity;
     @Column(nullable = false)
     private Long totalPrice;
+
+    public  OrderDetails(Product product, Integer quantity, Long totalPrice) {
+        this.product = product;
+        this.quantity = quantity;
+        this.totalPrice = totalPrice;
+    }
 }
