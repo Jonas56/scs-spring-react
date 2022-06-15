@@ -34,4 +34,14 @@ public class JwtUtil {
                 .signWith(Keys.hmacShaKeyFor(JwtUtil.SECRET.getBytes(StandardCharsets.UTF_8)))
                 .compact();
     }
+    public static String extractUsernameFromRequest(HttpServletRequest request) {
+        String authorization = request.getHeader(AUTH_HEADER);
+        String token = authorization.replace("Bearer ", "");
+        Jws<Claims> claimsJws =  Jwts.parserBuilder()
+                .setSigningKey(Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8)))
+                .build()
+                .parseClaimsJws(token);
+
+        return claimsJws.getBody().getSubject();
+    }
 }
