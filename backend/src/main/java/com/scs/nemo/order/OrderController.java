@@ -1,12 +1,14 @@
 package com.scs.nemo.order;
 
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.lang.reflect.Type;
 import java.util.List;
 
 @RestController
@@ -23,7 +25,8 @@ public class OrderController {
 
     @GetMapping()
     public List<OrderResponseDto> getAllOrders() {
-        return modelMapper.map(orderService.getAllOrders(), List.class);
+        Type listType = new TypeToken<List<OrderResponseDto>>() {}.getType(); // Get List<OrderResponseDto> type
+        return modelMapper.map(orderService.getAllOrders(), listType); // Map List<Order> to List<OrderResponseDto>
     }
 
     @GetMapping("/{orderId}")
