@@ -8,7 +8,6 @@ import lombok.*;
 @Getter
 @Setter
 public class OrderDetailsDto {
-    private Long orderId;
     private Long productId;
     private Integer quantity;
     private Long totalPrice;
