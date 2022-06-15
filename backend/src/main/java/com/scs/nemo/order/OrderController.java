@@ -35,8 +35,12 @@ public class OrderController {
     }
 
     @PostMapping()
-    public OrderResponseDto placeOrder(@RequestBody @Valid OrderRequestDto orderRequestDto, HttpServletRequest request) {
-        return modelMapper.map(orderService.placeOrder(modelMapper.map(orderRequestDto, Order.class), request), OrderResponseDto.class);
+    public ResponseEntity<OrderResponseDto> placeOrder(@RequestBody @Valid OrderRequestDto orderRequestDto, HttpServletRequest request) {
+        return new ResponseEntity<>(
+                modelMapper.map(
+                        orderService.placeOrder(modelMapper.map(orderRequestDto, Order.class), request),
+                        OrderResponseDto.class
+                ), HttpStatus.CREATED);
     }
 
     @PutMapping("/{orderId}")
