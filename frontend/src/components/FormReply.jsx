@@ -1,10 +1,10 @@
 import React from "react";
 
-const FormReply = (props) => {
+function FormReply(props) {
   return (
     <form action="" className="w-full p-4">
       <div className="mb-2">
-        <label for="comment" className="text-lg text-gray-600 font-medium">
+        <label htmlFor="comment" className="text-lg text-gray-600 font-medium">
           Add a comment
         </label>
         <textarea
@@ -24,6 +24,6 @@ const FormReply = (props) => {
       </div>
     </form>
   );
-};
+}
 
 export default FormReply;

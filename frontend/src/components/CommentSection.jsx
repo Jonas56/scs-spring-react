@@ -37,7 +37,7 @@ const comments = [
   },
 ];
 
-const CommentSection = () => {
+function CommentSection() {
   return (
     <section className="lg:w-3/5 md:w-3/4 w-11/12 h-[90%] bg-white rounded-lg px-8 py-6 md:px-12 md:py-8">
       <div className="border-l-2 border-gray-200 relative mb-10">
@@ -48,6 +48,6 @@ const CommentSection = () => {
       </div>
     </section>
   );
-};
+}
 
 export default CommentSection;
