@@ -21,9 +21,10 @@ public class OrderDetails {
     private Long id;
     @ManyToOne(
             targetEntity = Product.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(
+    @JoinColumn
+    (
             name = "product_id",
-            referencedColumnName = "productId"
+            referencedColumnName = "id"
     )
     private Product product;
     @Column(nullable = false)

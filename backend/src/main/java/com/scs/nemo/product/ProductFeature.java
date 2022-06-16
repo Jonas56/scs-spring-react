@@ -15,7 +15,6 @@ public class ProductFeature
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "featureId")
     private long id;
     private String name;
 }
