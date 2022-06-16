@@ -1,5 +1,6 @@
 package com.scs.nemo.comment;
 
+import com.scs.nemo.product.ProductImage;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,8 +8,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "comments")
@@ -20,19 +20,23 @@ public class Comment
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "commentId")
-    private long id;
+    private Long id;
     private String text;
     private LocalDate date;
-    private int rating;
-    private int likes;
+    private Integer rating;
+    private Integer likes;
 
     @OneToMany
     (
+        targetEntity = Comment.class,
         cascade = CascadeType.ALL,
         orphanRemoval = true,
         fetch = FetchType.EAGER
     )
-    @JoinColumn(name = "commetId")
-    private List<Comment> replies;
+    @JoinColumn
+    (
+        name = "comment_id",
+        referencedColumnName = "id"
+    )
+    private Set<Comment> replies;
 }
