@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.awt.*;
 import java.util.Set;
 
 @Entity
@@ -20,34 +19,55 @@ public class Product
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "productId")
-    private long id;
+    private Long id;
     private String name;
-    private int rating;
     private String description;
     private String category;
 
     @OneToMany
     (
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.EAGER
-    )
-    @JoinColumn(name = "productId")
-    private Set<ProductImage> images;
-
-    @OneToMany
-    (
+        targetEntity = ProductImage.class,
         cascade = CascadeType.ALL,
         orphanRemoval = true,
         fetch = FetchType.EAGER
     )
-    @JoinColumn(name = "productId")
+    @JoinColumn
+    (
+        name = "product_id",
+        referencedColumnName = "id"
+    )
+    private Set<ProductImage> images;
+
+    @OneToMany
+    (
+        targetEntity = Comment.class,
+        cascade = CascadeType.ALL,
+        orphanRemoval = true,
+        fetch = FetchType.EAGER
+    )
+    @JoinColumn
+    (
+        name = "product_id",
+        referencedColumnName = "id"
+    )
     private Set<Comment> comments;
 
-    @ManyToMany(targetEntity = ProductFeature.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "product_features",
-    joinColumns = @JoinColumn(name = "productId", referencedColumnName = "productId"),
-            inverseJoinColumns = @JoinColumn(name = "featureId", referencedColumnName = "featureId"))
+    @ManyToMany
+    (
+        targetEntity = ProductFeature.class,
+        fetch = FetchType.EAGER,
+        cascade = CascadeType.ALL
+    )
+    @JoinTable
+    (
+        name = "product_features",
+        joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "feature_id", referencedColumnName = "id")
+    )
     private Set<ProductFeature> features;
+
+    public Product(long id)
+    {
+        this.id = id;
+    }
 }
