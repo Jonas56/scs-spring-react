@@ -1,8 +1,10 @@
 package com.scs.nemo.config;
 
+import com.scs.nemo.product.Product;
+import com.scs.nemo.product.ProductRepository;
 import com.scs.nemo.user.IUserService;
 import com.scs.nemo.user.User;
-import com.scs.nemo.user.UserRequestDto;
+import com.scs.nemo.user.dto.UserRequestDto;
 import org.modelmapper.ModelMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,9 +24,10 @@ public class LoadToDatabase {
     );
 
     @Bean
-    CommandLineRunner initDatabase(IUserService userService, ModelMapper modelMapper) {
+    CommandLineRunner initDatabase(IUserService userService, ModelMapper modelMapper, ProductRepository productRepository) {
         return args -> {
             log.info("Preloading " + userService.register(modelMapper.map(userRequestDto, User.class)));
+            log.info("Preloading " + productRepository.save(new Product( "Tesla", "Model S", "category")));
         };
     }
 }

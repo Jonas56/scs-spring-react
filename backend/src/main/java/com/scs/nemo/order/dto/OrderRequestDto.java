@@ -1,5 +1,6 @@
-package com.scs.nemo.order;
+package com.scs.nemo.order.dto;
 
+import com.scs.nemo.order.OrderDetails;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

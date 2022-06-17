@@ -2,6 +2,7 @@ package com.scs.nemo.order;
 
 
 import com.scs.nemo.AbstractTest;
+import com.scs.nemo.order.dto.OrderResponseDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
