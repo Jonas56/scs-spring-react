@@ -7,6 +7,7 @@ import io.jsonwebtoken.security.Keys;
 import org.springframework.security.core.Authentication;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
@@ -34,14 +35,26 @@ public class JwtUtil {
                 .signWith(Keys.hmacShaKeyFor(JwtUtil.SECRET.getBytes(StandardCharsets.UTF_8)))
                 .compact();
     }
+
     public static String extractUsernameFromRequest(HttpServletRequest request) {
         String authorization = request.getHeader(AUTH_HEADER);
         String token = authorization.replace("Bearer ", "");
-        Jws<Claims> claimsJws =  Jwts.parserBuilder()
+        Jws<Claims> claimsJws = Jwts.parserBuilder()
                 .setSigningKey(Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8)))
                 .build()
                 .parseClaimsJws(token);
 
         return claimsJws.getBody().getSubject();
+    }
+
+    public static void refreshToken(HttpServletResponse response, String username) {
+        String refreshedToken = Jwts.builder()
+                .setSubject(username)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_REFRESH_TOKEN))
+                .signWith(Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8)))
+                .compact();
+
+        response.setHeader(AUTH_HEADER, "Bearer " + refreshedToken);
     }
 }

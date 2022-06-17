@@ -1,4 +1,4 @@
-package com.scs.nemo.user;
+package com.scs.nemo.user.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

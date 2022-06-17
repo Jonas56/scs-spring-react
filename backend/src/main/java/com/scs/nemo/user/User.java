@@ -1,11 +1,13 @@
 package com.scs.nemo.user;
 
+import com.scs.nemo.order.Order;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -23,6 +25,15 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
+
+    @OneToMany(
+            targetEntity = Order.class,
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private List<Order> orders;
     
 }
 
