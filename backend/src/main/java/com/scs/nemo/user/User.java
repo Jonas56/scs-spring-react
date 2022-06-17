@@ -1,5 +1,6 @@
 package com.scs.nemo.user;
 
+import com.scs.nemo.review.Review;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,6 +24,10 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
-    
+
+    @OneToOne
+    @JoinColumn(name = "review_id", unique =true, nullable = false)
+    private Review review;
+
 }
 

@@ -1,6 +1,7 @@
 package com.scs.nemo.product;
 
-import com.scs.nemo.comment.Comment;
+
+import com.scs.nemo.review.Review;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,9 +22,8 @@ public class Product
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "productId")
-    private long id;
+    private Long id;
     private String name;
-    private int rating;
     private String description;
     private String category;
 
@@ -33,8 +33,10 @@ public class Product
             orphanRemoval = true,
             fetch = FetchType.EAGER
     )
+
     @JoinColumn(name = "productId")
     private Set<ProductImage> images;
+
 
     @OneToMany
     (
@@ -42,8 +44,9 @@ public class Product
         orphanRemoval = true,
         fetch = FetchType.EAGER
     )
-    @JoinColumn(name = "productId")
-    private Set<Comment> comments;
+    @JoinColumn(name = "review_id")
+    private Set<Review> reviews;
+
 
     @ManyToMany(targetEntity = ProductFeature.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "product_features",

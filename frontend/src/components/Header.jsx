@@ -195,7 +195,7 @@ export default function Header() {
                     onClick={() => setOpen(false)}
                   >
                     <span className="sr-only">Close menu</span>
-                    <XIcon className="h-6 w-6" aria-hidden="true" />
+          <i class='fa-solid fa-suitcase-rolling'/> SCS
                   </button>
                 </div>
 
