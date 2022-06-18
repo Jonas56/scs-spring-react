@@ -19,7 +19,6 @@ import javax.persistence.Table;
 public class ProductImage
 {
     @Id
-    @Column(name = "imageId")
     private long id;
     private String path;
 

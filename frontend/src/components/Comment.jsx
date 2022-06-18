@@ -1,4 +1,4 @@
-const Comment = ({ comment }) => {
+export default function Comment({ comment }) {
   return (
     <div>
       <div className="md:h-20 md:w-20 md:p-4 h-14 w-14 p-2 absolute-left-7 md:-left-10-left-4 bg-white md:-top-4-top-3">
@@ -30,9 +30,9 @@ const Comment = ({ comment }) => {
               <path
                 d="M1 7L6.5 1L12 7"
                 stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </span>
@@ -50,9 +50,9 @@ const Comment = ({ comment }) => {
               <path
                 d="M1 1L6.5 7L12 1"
                 stroke="black"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               />
             </svg>
           </span>
@@ -67,6 +67,4 @@ const Comment = ({ comment }) => {
       </div>
     </div>
   );
-};
-
-export default Comment;
+}

@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.awt.*;
 import java.util.Set;
 
 @Entity
@@ -21,7 +20,6 @@ public class Product
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "productId")
     private Long id;
     private String name;
     private String description;
@@ -40,6 +38,7 @@ public class Product
 
     @OneToMany
     (
+
         cascade = CascadeType.ALL,
         orphanRemoval = true,
         fetch = FetchType.EAGER
@@ -48,9 +47,28 @@ public class Product
     private Set<Review> reviews;
 
 
-    @ManyToMany(targetEntity = ProductFeature.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "product_features",
-    joinColumns = @JoinColumn(name = "productId", referencedColumnName = "productId"),
-            inverseJoinColumns = @JoinColumn(name = "featureId", referencedColumnName = "featureId"))
+    @ManyToMany
+    (
+        targetEntity = ProductFeature.class,
+        fetch = FetchType.EAGER,
+        cascade = CascadeType.ALL
+    )
+    @JoinTable
+    (
+        name = "product_features",
+        joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "feature_id", referencedColumnName = "id")
+    )
     private Set<ProductFeature> features;
+
+    public Product(long id)
+    {
+        this.id = id;
+    }
+
+    public Product(String name, String description, String category) {
+        this.name = name;
+        this.description = description;
+        this.category = category;
+    }
 }

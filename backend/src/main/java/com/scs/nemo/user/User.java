@@ -1,12 +1,14 @@
 package com.scs.nemo.user;
 
 import com.scs.nemo.review.Review;
+import com.scs.nemo.order.Order;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -26,8 +28,17 @@ public class User {
     private String password;
 
     @OneToOne
-    @JoinColumn(name = "review_id", unique =true, nullable = false)
+    @JoinColumn(name = "review_id", unique = true, nullable = false)
     private Review review;
+
+    @OneToMany(
+            targetEntity = Order.class,
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private List<Order> orders;
 
 }
 
