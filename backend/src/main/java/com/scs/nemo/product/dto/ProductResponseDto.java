@@ -1,7 +1,6 @@
 package com.scs.nemo.product.dto;
 
 import com.scs.nemo.product.ProductImage;
-import com.scs.nemo.review.Review;
 import com.scs.nemo.review.dto.ReviewResponseDto;
 import lombok.*;
 

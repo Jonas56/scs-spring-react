@@ -32,13 +32,16 @@ public class ProductServiceImp implements IProductService {
     }
 
     @Override
-    public Product addReview(HttpServletRequest request, Long id, Review review) {
-        String username = JwtUtil.extractUsernameFromRequest(request);
-        User user = userRepository.findByUsername(username).orElseThrow();
-        review.setUser(user);
+    public void addReview(HttpServletRequest request, Long id, Review review) {
+        String username = JwtUtil.extractUsernameFromRequest(request); // Get username from JWT
+        User user = userRepository.findByUsername(username).orElseThrow(); // Get user from database by username
+        review.setUser(user); // Set user to review
         Product product = getProductById(id);
-        product.addReview(review);
-        return productRepository.save(product);
+        Double avg = (product.getAvg() * product.getReviews().size() + review.getRating()) / (product.getReviews().size() + 1);
+        product.setAvg(avg); // Update average rating
+        product.addReview(review); // Add review to product
+        productRepository.save(product);
     }
+
 
 }
