@@ -32,18 +32,18 @@ public class Product
             fetch = FetchType.EAGER
     )
 
-    @JoinColumn(name = "productId")
+    @JoinColumn(name = "product_id")
     private Set<ProductImage> images;
 
 
     @OneToMany
     (
-
+        targetEntity = Review.class,
         cascade = CascadeType.ALL,
         orphanRemoval = true,
         fetch = FetchType.EAGER
     )
-    @JoinColumn(name = "review_id")
+    @JoinColumn(name = "product_id")
     private Set<Review> reviews;
 
 

@@ -1,5 +1,6 @@
 package com.scs.nemo.review;
 
+import com.scs.nemo.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,7 +19,6 @@ import java.util.Set;
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     private Long id;
     private String title ;
     private String comment ;
@@ -29,5 +29,12 @@ public class Review {
     @ElementCollection
     private Set<String> comments ;
 
+    @ManyToOne(
+            targetEntity = User.class,
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL
+    )
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
 }

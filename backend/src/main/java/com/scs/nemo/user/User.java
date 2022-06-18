@@ -27,9 +27,12 @@ public class User {
     private String email;
     private String password;
 
-    @OneToOne
-    @JoinColumn(name = "review_id", unique = true, nullable = false)
-    private Review review;
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private List<Review> reviews;
 
     @OneToMany(
             targetEntity = Order.class,
