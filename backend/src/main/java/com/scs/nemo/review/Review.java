@@ -8,7 +8,6 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Set;
 
 @Entity
 @Table(name = "reviews")
@@ -16,25 +15,33 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Review {
+public class Review
+{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String title ;
-    private String comment ;
+    private String title;
+    private String comment;
     private LocalDate date;
-    private Integer rating=0 ;
-    private Integer isHelpful=0 ;
+    private Integer rating;
+    private Integer isHelpful;
 
-    @ElementCollection
-    private Set<String> comments ;
-
-    @ManyToOne(
-            targetEntity = User.class,
-            fetch = FetchType.EAGER,
-            cascade = CascadeType.ALL
+    @ManyToOne
+    (
+        targetEntity = User.class,
+        fetch = FetchType.EAGER,
+        cascade = CascadeType.ALL
     )
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @JoinColumn
+    (
+        name = "user_id",
+        referencedColumnName = "id"
+    )
     private User user;
 
+    @PrePersist
+    public void prePersist()
+    {
+        this.date = LocalDate.now();
+    }
 }

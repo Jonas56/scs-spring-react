@@ -72,7 +72,8 @@ public class Product
         this.category = category;
     }
 
-    public void addReview(Review review) {
+    public void addReview(Review review)
+    {
         reviews.add(review);
     }
 }
