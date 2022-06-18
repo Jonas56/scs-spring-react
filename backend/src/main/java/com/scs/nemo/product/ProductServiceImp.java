@@ -25,4 +25,8 @@ public class ProductServiceImp
         return productRepository.findById(id);
     }
 
+    public Double getAVG(Long id){
+        return productRepository.getAVG(id);
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.scs.nemo.user;
 
+import com.scs.nemo.review.Review;
 import com.scs.nemo.order.Order;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,6 +27,10 @@ public class User {
     private String email;
     private String password;
 
+    @OneToOne
+    @JoinColumn(name = "review_id", unique = true, nullable = false)
+    private Review review;
+
     @OneToMany(
             targetEntity = Order.class,
             fetch = FetchType.EAGER,
@@ -34,6 +39,6 @@ public class User {
     )
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private List<Order> orders;
-    
+
 }
 

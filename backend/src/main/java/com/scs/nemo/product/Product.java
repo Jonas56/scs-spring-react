@@ -1,6 +1,7 @@
 package com.scs.nemo.product;
 
-import com.scs.nemo.comment.Comment;
+
+import com.scs.nemo.review.Review;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,31 +27,25 @@ public class Product
 
     @OneToMany
     (
-        targetEntity = ProductImage.class,
-        cascade = CascadeType.ALL,
-        orphanRemoval = true,
-        fetch = FetchType.EAGER
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER
     )
-    @JoinColumn
-    (
-        name = "product_id",
-        referencedColumnName = "id"
-    )
+
+    @JoinColumn(name = "productId")
     private Set<ProductImage> images;
+
 
     @OneToMany
     (
-        targetEntity = Comment.class,
+
         cascade = CascadeType.ALL,
         orphanRemoval = true,
         fetch = FetchType.EAGER
     )
-    @JoinColumn
-    (
-        name = "product_id",
-        referencedColumnName = "id"
-    )
-    private Set<Comment> comments;
+    @JoinColumn(name = "review_id")
+    private Set<Review> reviews;
+
 
     @ManyToMany
     (
