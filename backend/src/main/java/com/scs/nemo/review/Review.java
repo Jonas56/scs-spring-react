@@ -15,33 +15,29 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Review
-{
+public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
     private String comment;
     private LocalDate date;
-    private Integer rating;
-    private Integer isHelpful;
+    private Double rating;
+    private Integer isHelpful = 0;
 
-    @ManyToOne
-    (
-        targetEntity = User.class,
-        fetch = FetchType.EAGER,
-        cascade = CascadeType.ALL
+    @ManyToOne(
+            targetEntity = User.class,
+            fetch = FetchType.EAGER,
+            cascade = CascadeType.ALL
     )
-    @JoinColumn
-    (
-        name = "user_id",
-        referencedColumnName = "id"
+    @JoinColumn(
+            name = "user_id",
+            referencedColumnName = "id"
     )
     private User user;
 
     @PrePersist
-    public void prePersist()
-    {
+    public void prePersist() {
         this.date = LocalDate.now();
     }
 }

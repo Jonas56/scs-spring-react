@@ -9,8 +9,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Getter
 @Setter
-public class ReviewResponseDto
-{
+public class ReviewResponseDto {
     private Long id;
     private String title;
     private String comment;

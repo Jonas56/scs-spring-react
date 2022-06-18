@@ -11,5 +11,5 @@ public interface IProductService {
 
     Product getProductById(Long productId);
 
-    Product addReview(HttpServletRequest request, Long productId, Review review);
+    void addReview(HttpServletRequest request, Long productId, Review review);
 }

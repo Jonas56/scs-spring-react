@@ -3,6 +3,7 @@ package com.scs.nemo.product;
 import com.scs.nemo.order.dto.OrderResponseDto;
 import com.scs.nemo.product.dto.ProductResponseDto;
 import com.scs.nemo.review.Review;
+import com.scs.nemo.review.dto.ReviewRequestDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.web.bind.annotation.*;
@@ -35,9 +36,10 @@ public class ProductController {
         return productService.getProductById(productId);
     }
 
-    @PutMapping("/products/{productId}")
-    public ProductResponseDto addReview(@PathVariable Long productId, @RequestBody Review review, HttpServletRequest request) {
-        ProductResponseDto productResponseDto = modelMapper.map(productService.addReview(request, productId, review), ProductResponseDto.class);
-        return productResponseDto;
+    // Add review
+    @PostMapping("/products/{productId}/reviews")
+    public void addReview(@PathVariable Long productId, @RequestBody ReviewRequestDto reviewRequestDto, HttpServletRequest request) {
+        Review review = modelMapper.map(reviewRequestDto, Review.class);
+        productService.addReview(request, productId, review);
     }
 }
