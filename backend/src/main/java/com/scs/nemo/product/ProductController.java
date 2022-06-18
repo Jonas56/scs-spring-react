@@ -7,6 +7,7 @@ import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Type;
 import java.util.List;
 
@@ -35,7 +36,8 @@ public class ProductController {
     }
 
     @PutMapping("/products/{productId}")
-    public Product addReview(@PathVariable Long productId, @RequestBody Review review) {
-        return productService.addReview(productId, review);
+    public ProductResponseDto addReview(@PathVariable Long productId, @RequestBody Review review, HttpServletRequest request) {
+        ProductResponseDto productResponseDto = modelMapper.map(productService.addReview(request, productId, review), ProductResponseDto.class);
+        return productResponseDto;
     }
 }
