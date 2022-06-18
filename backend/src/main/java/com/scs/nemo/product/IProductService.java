@@ -1,12 +1,14 @@
 package com.scs.nemo.product;
 
+import com.scs.nemo.review.Review;
+
 import java.util.List;
 
 public interface IProductService {
 
     List<Product> getProducts();
 
-    Product getProductById(Long id);
+    Product getProductById(Long productId);
 
-    Double getAVG(Long id);
+    Product addReview(Long productId, Review review);
 }
