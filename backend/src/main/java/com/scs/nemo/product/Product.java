@@ -71,4 +71,8 @@ public class Product
         this.description = description;
         this.category = category;
     }
+
+    public void addReview(Review review) {
+        reviews.add(review);
+    }
 }

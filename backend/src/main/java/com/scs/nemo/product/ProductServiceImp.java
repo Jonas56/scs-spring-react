@@ -1,11 +1,15 @@
 package com.scs.nemo.product;
 
+import com.scs.nemo.order.dto.OrderResponseDto;
+import com.scs.nemo.review.Review;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.lang.reflect.Type;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ProductServiceImp implements IProductService {
@@ -25,8 +29,11 @@ public class ProductServiceImp implements IProductService {
                 HttpStatus.NOT_FOUND, "Product not found"));
     }
 
-    public Double getAVG(Long id) {
-        return productRepository.getAVG(id);
+    @Override
+    public Product addReview(Long id, Review review) {
+        Product product = getProductById(id);
+        product.addReview(review);
+        return productRepository.save(product);
     }
 
 }
