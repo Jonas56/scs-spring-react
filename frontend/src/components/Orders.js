@@ -1,10 +1,15 @@
 import React from 'react';
 import OrderDetails from './OrderDetails';
 
+import { useNavigate } from "react-router-dom";
+
 function Orders()
  {
+  let navigate = useNavigate();
+
   const showDetails = () => {
-   
+    navigate("../orderDetails");
+    console.log("hh")
   }
   
     return (
@@ -106,7 +111,7 @@ function Orders()
                         </svg>
                         Invoice
                       </button>
-                      <button class="btn-primary py-1 px-2 flex items-center">
+                      <button class="btn-primary py-1 px-2 flex items-center" onClick={showDetails} >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           class="h-6 w-6 mr-1"
@@ -156,7 +161,7 @@ function Orders()
                         </svg>
                         Invoice
                       </button>
-                      <button class="btn-primary py-1 px-2 flex items-center">
+                      <button class="btn-primary py-1 px-2 flex items-center" onClick={showDetails}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           class="h-6 w-6 mr-1"
@@ -206,7 +211,7 @@ function Orders()
                         </svg>
                         Invoice
                       </button>
-                      <button class="btn-primary py-1 px-2 flex items-center">
+                      <button class="btn-primary py-1 px-2 flex items-center" onClick={showDetails}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           class="h-6 w-6 mr-1"
@@ -256,7 +261,7 @@ function Orders()
                         </svg>
                         Invoice
                       </button>
-                      <button class="btn-primary py-1 px-2 flex items-center">
+                      <button class="btn-primary py-1 px-2 flex items-center" onClick={showDetails}>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           class="h-6 w-6 mr-1"
