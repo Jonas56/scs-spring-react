@@ -1,4 +1,6 @@
 import React, { Fragment, useState } from "react";
+import { FaSuitcaseRolling, FaSpeakerDeck } from "react-icons/fa";
+
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import ShoppingCart from "./cart/ShoppingCart";
 import { Link } from "react-router-dom";
@@ -7,126 +9,131 @@ import {
   MenuIcon,
   SearchIcon,
   ShoppingBagIcon,
+<<<<<<< HEAD
   UserIcon,
+=======
+>>>>>>> 3d674b8 (Website Content added #42)
 } from "@heroicons/react/outline";
+
 
 const navigation = {
   categories: [
     {
-      id: "luggage",
-      name: "Luggage",
+      id: "Men_bags",
+      name: "Men",
       featured: [
         {
-          name: "Large Luggage",
+          name: "Suitcase",
           href: "#",
           imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg",
+            "https://www.linkpicture.com/q/men1.jpg",
           imageAlt:
             "Models sitting back to back, wearing Basic Tee in black and bone.",
         },
         {
-          name: "Carry on Lugguge",
+          name: "Backpack",
           href: "#",
           imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg",
+            "https://i.ibb.co/0CXMDT2/men2.jpg",
           imageAlt:
             "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
         },
       ],
       sections: [
         {
-          id: "luggage-accessories",
-          name: "Luggage Accessories",
+          id: "luggage-categories",
+          name: "Luggage Categories",
           items: [
-            { name: "Soft Side", href: "#" },
-            { name: "Hard Side", href: "#" },
-            { name: "Pants", href: "#" },
-            { name: "Denim", href: "#" },
-            { name: "Sweaters", href: "#" },
-            { name: "T-Shirts", href: "#" },
-            { name: "Jackets", href: "#" },
-            { name: "Browse All", href: "#" },
-          ],
-        },
-        {
-          id: "accessories",
-          name: "Accessories",
-          items: [
-            { name: "Watches", href: "#" },
-            { name: "Wallets", href: "#" },
+            { name: "New Arrivals", href: "#" },
+            { name: "Sales", href: "#" },
+            { name: "Suitcases", href: "#" },
             { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
-            { name: "Belts", href: "#" },
+            { name: "Backpacks", href: "#" },
+     
+          //  { name: "T-Shirts", href: "#" },
+          //  { name: "Jackets", href: "#" },
+          //  { name: "Browse All", href: "#" },
           ],
         },
         {
-          id: "brands",
-          name: "Brands",
+          id: "feautres",
+          name: "Feautures",
           items: [
-            { name: "Full Nelson", href: "#" },
-            { name: "My Way", href: "#" },
-            { name: "Re-Arranged", href: "#" },
-            { name: "Counterfeit", href: "#" },
-            { name: "Significant Other", href: "#" },
+            { name: "Smart Lock & unLock", href: "#" },
+            { name: "Digital Scale", href: "#" },
+            { name: "Location Tracking", href: "#" },
+            { name: "Distance Alerts", href: "#" },
+            { name: "Battery Charger", href: "#" },
+          ],
+        },
+        {
+          id: "styles",
+          name: "Styles",
+          items: [
+            { name: "For Men", href: "#" },
+            { name: "For Women", href: "#" },
+            { name: "For Kids", href: "#" },
+           
           ],
         },
       ],
     },
     {
-      id: "bags-backpacks",
-      name: "Bags & Backpacks",
+      id: "Women_bags",
+      name: "Women",
       featured: [
         {
-          name: "New Arrivals",
+          name: "Suitcase",
           href: "#",
           imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/product-page-04-detail-product-shot-01.jpg",
+            " https://i.ibb.co/tD4Qk3C/women1.jpg",
           imageAlt:
-            "Drawstring top with elastic loop closure and textured interior padding.",
+            "Models sitting back to back, wearing Basic Tee in black and bone.",
         },
         {
-          name: "Artwork",
+          name: "Backpack",
           href: "#",
           imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg",
+            "https://i.ibb.co/T2Ndf4d/charlesdeluvio-Ghrv69-I9m-Pw-unsplash.jpg",
           imageAlt:
-            "Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt.",
+            "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
         },
       ],
       sections: [
         {
-          id: "crossed-bags",
-          name: "Crossed Bags",
+          id: "luggage-categories",
+          name: "Luggage Categories",
           items: [
-            { name: "Tops", href: "#" },
-            { name: "Pants", href: "#" },
-            { name: "Sweaters", href: "#" },
-            { name: "Jackets", href: "#" },
-            { name: "Activewear", href: "#" },
-            { name: "Browse All", href: "#" },
-          ],
-        },
-        {
-          id: "accessories",
-          name: "Accessories",
-          items: [
-            { name: "Watches", href: "#" },
-            { name: "Wallets", href: "#" },
+            { name: "New Arrivals", href: "#" },
+            { name: "Sales", href: "#" },
+            { name: "Suitcases", href: "#" },
             { name: "Bags", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Hats", href: "#" },
-            { name: "Belts", href: "#" },
+            { name: "Backpacks", href: "#" },
+     
+          //  { name: "T-Shirts", href: "#" },
+          //  { name: "Jackets", href: "#" },
+          //  { name: "Browse All", href: "#" },
           ],
         },
         {
-          id: "brands",
-          name: "Brands",
+          id: "feautres",
+          name: "Feautures",
           items: [
-            { name: "Re-Arranged", href: "#" },
-            { name: "Counterfeit", href: "#" },
-            { name: "Full Nelson", href: "#" },
-            { name: "My Way", href: "#" },
+            { name: "Smart Lock & unLock", href: "#" },
+            { name: "Digital Scale", href: "#" },
+            { name: "Location Tracking", href: "#" },
+            { name: "Distance Alerts", href: "#" },
+            { name: "Battery Charger", href: "#" },
+          ],
+        },
+        {
+          id: "styles",
+          name: "Styles",
+          items: [
+            { name: "For Men", href: "#" },
+            { name: "For Women", href: "#" },
+            { name: "For Kids", href: "#" },
+           
           ],
         },
       ],
@@ -187,7 +194,12 @@ export default function Header() {
                     onClick={() => setOpen(false)}
                   >
                     <span className="sr-only">Close menu</span>
+<<<<<<< HEAD
                     <i className="fa-solid fa-suitcase-rolling" /> SCS
+=======
+                    <FaSuitcaseRolling className="h-8 w-auto inline fill-[#313178] "/> 
+                  <FaSpeakerDeck  className="h-8 w-auto inline fill-[#313178] "/>    
+>>>>>>> 3d674b8 (Website Content added #42)
                   </button>
                 </div>
 
@@ -291,6 +303,7 @@ export default function Header() {
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+<<<<<<< HEAD
                   {user ? (
                     <div className="flow-root">
                       <Link
@@ -320,20 +333,38 @@ export default function Header() {
                       </div>
                     </>
                   )}
+=======
+                  <div className="flow-root">
+                    <a
+                      href="signin"
+                      className="-m-2 p-2 block font-medium text-gray-900"
+                    >
+                      Sign in
+                    </a>
+                  </div>
+                  <div className="flow-root">
+                    <a
+                      href="signup"
+                      className="-m-2 p-2 block font-medium text-gray-900"
+                    >
+                      Create account
+                    </a>
+                  </div>
+>>>>>>> 3d674b8 (Website Content added #42)
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4">
                   <a
-                    href="http://localhost:3000/"
+                    href=""
                     className="-m-2 p-2 flex items-center"
                   >
                     <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
+                      src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg"
                       alt=""
                       className="w-5 h-auto block flex-shrink-0"
                     />
                     <span className="ml-3 block text-base font-medium text-gray-900">
-                      CAD
+                      MAD
                     </span>
                     <span className="sr-only">, change currency</span>
                   </a>
@@ -366,6 +397,7 @@ export default function Header() {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
+<<<<<<< HEAD
                 <Link to="/">
                   <span className="sr-only">SCS</span>
                   <img
@@ -374,6 +406,13 @@ export default function Header() {
                     alt=""
                   />
                 </Link>
+=======
+                <a href="http://localhost:3000/#">
+                  <span className="sr-only">Workflow</span>
+                  <FaSuitcaseRolling className="h-8 w-auto inline fill-[#313178] "/> 
+                  <FaSpeakerDeck  className="h-8 w-auto inline fill-[#313178] "/>          
+             </a>
+>>>>>>> 3d674b8 (Website Content added #42)
               </div>
 
               {/* Flyout menus */}
@@ -501,6 +540,7 @@ export default function Header() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
+<<<<<<< HEAD
                   {user ? (
                     <Link to="/profile" className="flex">
                       <UserIcon className="h-5 w-5 text-gray-700 mx-2" />{" "}
@@ -528,19 +568,34 @@ export default function Header() {
                       </Link>
                     </>
                   )}
+=======
+                  <a
+                    href="signin"
+                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                  >
+                    Sign in
+                  </a>
+                  <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
+                  <a
+                    href="signup"
+                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                  >
+                    Create account
+                  </a>
+>>>>>>> 3d674b8 (Website Content added #42)
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">
                   <a
-                    href="http://localhost:3000/#"
+                    href="*"
                     className="text-gray-700 hover:text-gray-800 flex items-center"
                   >
                     <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
+                      src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg"
                       alt=""
                       className="w-5 h-auto block flex-shrink-0"
                     />
-                    <span className="ml-3 block text-sm font-medium">CAD</span>
+                    <span className="ml-3 block text-sm font-medium">MAD</span>
                     <span className="sr-only">, change currency</span>
                   </a>
                 </div>

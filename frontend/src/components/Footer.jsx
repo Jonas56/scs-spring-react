@@ -1,20 +1,19 @@
+import { FaSuitcaseRolling, FaSpeakerDeck } from "react-icons/fa";
+
 const Footer = () => {
   return (
     <footer className="p-4 bg-white sm:p-6 lg:mx-28">
       <div className="md:flex md:justify-between my-3">
         <div className="mb-6 md:mb-0">
           <a href="https://github.com/jonas56" className="flex items-center">
-            <img
-              src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png"
-              className="mr-3 h-8"
-              alt="Nemo Logo"
-            />
+          <FaSuitcaseRolling className="h-8 w-auto inline fill-[#313178] "/> 
+          <FaSpeakerDeck  className="h-8 w-auto inline fill-[#313178] "/>      
             <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-700">
-              Nemo
+            
             </span>
           </a>
           <p className="text-gray-400 my-4 mx-4 w-80">
-            Making the world a better place through technology.
+          More than a suitcase, your personal travel assistant.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
@@ -25,57 +24,57 @@ const Footer = () => {
             <ul className="text-gray-400 ">
               <li className="mb-4">
                 <a
-                  href="https://github.com/jonas56"
+                  href="http://localhost:3000/"
                   className="hover:underline"
                 >
-                  Nemo
+                  Home
                 </a>
               </li>
               <li className="mb-4">
                 <a
-                  href="https://github.com/jonas56"
+                  href="products"
                   className="hover:underline"
                 >
-                  Nemo
+                  Products
                 </a>
               </li>
               <li>
                 <a
-                  href="https://github.com/jonas56"
+                  href="*"
                   className="hover:underline"
                 >
-                  Tailwind CSS
+                  About
                 </a>
               </li>
             </ul>
           </div>
           <div>
             <h2 className="mb-6 text-sm font-semibold text-gray-700 uppercase">
-              Support
+             Assistance
             </h2>
             <ul className="text-gray-400 ">
               <li className="mb-4">
                 <a
-                  href="https://github.com/jonas56"
+                  href="*"
                   className="hover:underline"
                 >
-                  Nemo
+                  Aide
                 </a>
               </li>
               <li className="mb-4">
                 <a
-                  href="https://github.com/jonas56"
+                  href="*"
                   className="hover:underline"
                 >
-                  Nemo
+                  Contactez-nous
                 </a>
               </li>
               <li>
                 <a
-                  href="https://github.com/jonas56"
+                  href="*"
                   className="hover:underline"
                 >
-                  Tailwind CSS
+                 Livraison
                 </a>
               </li>
             </ul>
@@ -99,7 +98,7 @@ const Footer = () => {
                   href="https://github.com/jonas56"
                   className="hover:underline"
                 >
-                  Nemo
+                  Facebook
                 </a>
               </li>
               <li>
@@ -107,7 +106,7 @@ const Footer = () => {
                   href="https://github.com/jonas56"
                   className="hover:underline"
                 >
-                  Discord
+                  Instagram
                 </a>
               </li>
             </ul>
@@ -130,7 +129,7 @@ const Footer = () => {
                   href="https://github.com/jonas56"
                   className="hover:underline"
                 >
-                  Nemo
+                  Site Map
                 </a>
               </li>
               <li>
@@ -150,7 +149,7 @@ const Footer = () => {
         <span className="text-sm text-gray-500 sm:text-center ">
           © 2022{" "}
           <a href="https://Nemo.com" className="hover:underline">
-            Nemo™
+            SCS™
           </a>
           . All Rights Reserved.
         </span>

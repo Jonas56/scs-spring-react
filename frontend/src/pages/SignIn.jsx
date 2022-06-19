@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
+=======
+import React, { useState } from "react";
+import { FaSuitcaseRolling, FaSpeakerDeck } from "react-icons/fa";
+
+import { httpLoginUser } from "../api/auth/authService";
+>>>>>>> 3d674b8 (Website Content added #42)
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/slices/authSlice";
@@ -54,18 +61,24 @@ export default function SignIn() {
         {spinner && <Spinner />}
         <div className="max-w-md w-full space-y-8">
           <div>
-            <img
-              className="mx-auto h-20 w-auto"
-              src="https://download.logo.wine/logo/React_(web_framework)/React_(web_framework)-Logo.wine.png"
-              alt="Workflow"
-            />
+        
+                <a href="http://localhost:3000/">
+                  
+                  <FaSuitcaseRolling className="mx-auto h-10 w-auto  fill-[#313178] "/> 
+                  <FaSpeakerDeck  className="mx-auto h-10 w-auto  fill-[#313178] "/>          
+             </a>
+            
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
               Sign in to your account
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               Or{" "}
               <a
+<<<<<<< HEAD
                 href="/signup"
+=======
+                href="signup"
+>>>>>>> 3d674b8 (Website Content added #42)
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 create a new one
