@@ -1,14 +1,59 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
+import useFormInputs from "../hooks/useFormInputs";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../redux/slices/authSlice";
+import { Link, useNavigate } from "react-router-dom";
+import Alert from "../components/Alert";
+import AlertSuccess from "../components/AlertSuccess";
+import Spinner from "../components/Spinner";
 
 export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const [inputs, handleInputChange] = useFormInputs({
+    firstName: "",
+    lastName: "",
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+  const [error, setError] = useState(null);
+  const [signedUp, setSignedUp] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [spinner, setSpinner] = useState(false);
+
+  let { status, message } = useSelector((state) => state.auth);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const credentials = inputs;
+    setSpinner(true);
+    dispatch(register(credentials));
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSpinner(false);
+    }, 1000);
+    if (status === "failed") {
+      setError(message);
+      setTimeout(() => {
+        setError(null);
+      }, 5000);
+    } else if (status === "succeeded") {
+      setError(null);
+      setSignedUp(true);
+      setTimeout(() => {
+        setSignedUp(false);
+      }, 7000);
+    }
+  }, [status, message, setError, navigate]);
 
   return (
     <>
       <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-100 h-100">
+        {spinner && <Spinner />}
         <div className="max-w-md w-full space-y-8">
           <div>
             <img
@@ -21,18 +66,20 @@ export default function SignUp() {
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               Or{" "}
-              <a
-                href="https://tailwindui.com/components/forms"
+              <Link
+                to="/login"
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 already have an account?
-              </a>
+              </Link>
             </p>
           </div>
           <form
             className="mt-8 space-y-6 bg-white p-8 rounded-md shadow-md"
             onSubmit={handleSubmit}
           >
+            {error && <Alert error={error} />}
+            {signedUp && <AlertSuccess />}
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div className=" flex justify-between my-4">
@@ -41,24 +88,26 @@ export default function SignUp() {
                 </label>
                 <input
                   id="first-name"
-                  name="first-name"
+                  name="firstName"
                   type="text"
                   autoComplete="first-name"
                   required
                   className="appearance-none relative only: block w-full mr-1 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="First Name"
+                  onChange={handleInputChange}
                 />
                 <label htmlFor="last-name" className="sr-only">
                   Last Name
                 </label>
                 <input
                   id="last-name"
-                  name="last-name"
+                  name="lastName"
                   type="text"
                   autoComplete="last-name"
                   required
                   className="appearance-none relative  block w-full ml-1 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Last Name"
+                  onChange={handleInputChange}
                 />
               </div>
               <div>
@@ -73,6 +122,7 @@ export default function SignUp() {
                   required
                   className="appearance-none relative my-4 block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Username"
+                  onChange={handleInputChange}
                 />
               </div>
               <div>
@@ -81,12 +131,13 @@ export default function SignUp() {
                 </label>
                 <input
                   id="email-address"
-                  name="email-address"
+                  name="email"
                   type="email"
                   autoComplete="email"
                   required
                   className="appearance-none relative my-4 block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Email address"
+                  onChange={handleInputChange}
                 />
               </div>
 
@@ -102,6 +153,7 @@ export default function SignUp() {
                   required
                   className="appearance-none relative my-4 block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Password"
+                  onChange={handleInputChange}
                 />
               </div>
               <div>
@@ -110,12 +162,13 @@ export default function SignUp() {
                 </label>
                 <input
                   id="confirm-password"
-                  name="confirm-password"
+                  name="confirmPassword"
                   type="password"
                   autoComplete="confirm-password"
                   required
                   className="appearance-none relative my-4 block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md  focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                   placeholder="Confirm Password"
+                  onChange={handleInputChange}
                 />
               </div>
             </div>
