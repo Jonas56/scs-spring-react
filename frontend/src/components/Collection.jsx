@@ -1,27 +1,27 @@
 const callouts = [
   {
-    name: "Desk and Office",
-    description: "Work from home accessories",
+    name: "Style and technology",
+    description: "Smart Suitcases",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-01.jpg",
+      "https://www.linkpicture.com/q/suitcase1.jpg",
     imageAlt:
       "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
     href: "#",
   },
   {
-    name: "Self-Improvement",
-    description: "Journals and note-taking",
+    name: "Adventures",
+    description: "Smart Bags",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-02.jpg",
+      "https://www.linkpicture.com/q/bag1_1.jpg",
     imageAlt:
       "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
     href: "#",
   },
   {
     name: "Travel",
-    description: "Daily commute essentials",
+    description: "Smart Backpacks",
     imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/home-page-02-edition-03.jpg",
+    "https://www.linkpicture.com/q/backpack_1.jpg",
     imageAlt: "Collection of four insulated travel bottles on wooden shelf.",
     href: "#",
   },
@@ -33,7 +33,7 @@ export default function Collection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto py-16 sm:py-24 lg:py-32 lg:max-w-none">
           <div className="flex justify-between">
-            <h2 className="text-2xl font-extrabold text-gray-900">
+            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               Collections
             </h2>
             <a href="/#" className="text-indigo-700 p-2 font-bold text-base">

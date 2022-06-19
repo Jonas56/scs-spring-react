@@ -1,5 +1,7 @@
 import React from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
+import { FaSuitcaseRolling, FaSpeakerDeck } from "react-icons/fa";
+
 
 export default function SignUp() {
   const handleSubmit = (event) => {
@@ -11,18 +13,18 @@ export default function SignUp() {
       <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-100 h-100">
         <div className="max-w-md w-full space-y-8">
           <div>
-            <img
-              className="mx-auto h-20 w-auto"
-              src="https://download.logo.wine/logo/React_(web_framework)/React_(web_framework)-Logo.wine.png"
-              alt="Workflow"
-            />
+          <a href="http://localhost:3000/">
+                  
+                  <FaSuitcaseRolling className="mx-auto h-10 w-auto  fill-[#313178] "/> 
+                  <FaSpeakerDeck  className="mx-auto h-10 w-auto  fill-[#313178] "/>          
+             </a>
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
               Sign up to your new account
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               Or{" "}
               <a
-                href="https://tailwindui.com/components/forms"
+                href="signin"
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 already have an account?
