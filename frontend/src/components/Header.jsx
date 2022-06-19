@@ -31,7 +31,7 @@ const navigation = {
             "Models sitting back to back, wearing Basic Tee in black and bone.",
         },
         {
-          name: "Backpack",
+          name: "Bag",
           href: "#",
           imageSrc:
             "https://i.ibb.co/0CXMDT2/men2.jpg",
