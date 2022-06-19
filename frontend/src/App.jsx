@@ -7,6 +7,7 @@ import CategoryFilter from "./pages/CategoryFilter";
 import NotFound from "./pages/404";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
+import MyProfil from "./pages/MyProfil";
 
 const App = () => {
   return (
@@ -16,8 +17,8 @@ const App = () => {
 
         <Route path="login" element={<SignIn />} />
         <Route path="signup" element={<SignUp />} />
-
         <Route path="checkout" element={<Checkout />} />
+        <Route path="myProfil" element={<MyProfil />} />
 
         <Route path="products" element={<CategoryFilter />} />
         <Route path="products/:id" element={<ProductDetails />} />
