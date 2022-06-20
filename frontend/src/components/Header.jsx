@@ -1,11 +1,13 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
-import ShoppingCart from "./ShoppingCart";
+import ShoppingCart from "./cart/ShoppingCart";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import {
   MenuIcon,
   SearchIcon,
   ShoppingBagIcon,
-  XIcon,
+  UserIcon,
 } from "@heroicons/react/outline";
 
 const navigation = {
@@ -143,6 +145,7 @@ function classNames(...classes) {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const { user } = useSelector((state) => state.auth);
 
   return (
     <div className="bg-white">
@@ -179,7 +182,7 @@ export default function Header() {
                     onClick={() => setOpen(false)}
                   >
                     <span className="sr-only">Close menu</span>
-          <i class='fa-solid fa-suitcase-rolling'/> SCS
+                    <i className="fa-solid fa-suitcase-rolling" /> SCS
                   </button>
                 </div>
 
@@ -283,22 +286,35 @@ export default function Header() {
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4 space-y-6">
-                  <div className="flow-root">
-                    <a
-                      href="http://localhost:3000/#"
-                      className="-m-2 p-2 block font-medium text-gray-900"
-                    >
-                      Sign in
-                    </a>
-                  </div>
-                  <div className="flow-root">
-                    <a
-                      href="http://localhost:3000/#"
-                      className="-m-2 p-2 block font-medium text-gray-900"
-                    >
-                      Create account
-                    </a>
-                  </div>
+                  {user ? (
+                    <div className="flow-root">
+                      <Link
+                        to="/profile"
+                        className="-m-2 p-2 block font-medium text-gray-900"
+                      >
+                        My Account
+                      </Link>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="flow-root">
+                        <Link
+                          to="/login"
+                          className="-m-2 p-2 block font-medium text-gray-900"
+                        >
+                          Sign in
+                        </Link>
+                      </div>
+                      <div className="flow-root">
+                        <Link
+                          to="/register"
+                          className="-m-2 p-2 block font-medium text-gray-900"
+                        >
+                          Create account
+                        </Link>
+                      </div>
+                    </>
+                  )}
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4">
@@ -345,14 +361,14 @@ export default function Header() {
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="http://localhost:3000/#">
-                  <span className="sr-only">Workflow</span>
+                <Link to="/">
+                  <span className="sr-only">SCS</span>
                   <img
                     className="h-8 w-auto"
                     src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png"
                     alt=""
                   />
-                </a>
+                </Link>
               </div>
 
               {/* Flyout menus */}
@@ -480,19 +496,33 @@ export default function Header() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a
-                    href="http://localhost:3000/#"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Sign in
-                  </a>
-                  <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                  <a
-                    href="http://localhost:3000/#"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Create account
-                  </a>
+                  {user ? (
+                    <Link to="/profile" className="flex">
+                      <UserIcon className="h-5 w-5 text-gray-700 mx-2" />{" "}
+                      <span className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                        {user.username}
+                      </span>
+                    </Link>
+                  ) : (
+                    <>
+                      <Link
+                        to="/login"
+                        className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                      >
+                        Sign in
+                      </Link>
+                      <span
+                        className="h-6 w-px bg-gray-200"
+                        aria-hidden="true"
+                      />
+                      <Link
+                        to="/register"
+                        className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                      >
+                        Create account
+                      </Link>
+                    </>
+                  )}
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">
