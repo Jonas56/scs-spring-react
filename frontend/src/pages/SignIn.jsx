@@ -13,7 +13,7 @@ export default function SignIn() {
   const navigate = useNavigate();
   const [spinner, setSpinner] = useState(false);
 
-  const { user, state, message } = useSelector((state) => state.auth);
+  const { user, status, message } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
 
@@ -31,15 +31,16 @@ export default function SignIn() {
     setTimeout(() => {
       setSpinner(false);
     }, 1000);
-    if (state === "failed") {
+    if (status === "failed") {
       setError(message);
+      console.log(message);
       setTimeout(() => {
         setError(null);
       }, 5000);
-    } else if (state === "succeeded" || user) {
+    } else if (status === "succeeded" || user) {
       navigate("/");
     }
-  }, [state, message, setError, user, navigate]);
+  }, [status, message, setError, user, navigate]);
 
   return (
     <>
