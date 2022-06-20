@@ -24,6 +24,7 @@ public class Product {
     private String description;
     private String category;
     private Double avg = 0.0;
+    private Double price;
 
     @OneToMany
             (
@@ -65,10 +66,11 @@ public class Product {
         this.id = id;
     }
 
-    public Product(String name, String description, String category) {
+    public Product(String name, String description, String category, Double price) {
         this.name = name;
         this.description = description;
         this.category = category;
+        this.price = price;
     }
 
     public void addReview(Review review) {

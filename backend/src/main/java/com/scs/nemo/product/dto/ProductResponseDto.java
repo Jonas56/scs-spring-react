@@ -18,5 +18,5 @@ public class ProductResponseDto {
     private String category;
     private Set<ProductImage> images;
     private Double avg;
-    private Set<ReviewResponseDto> reviews;
+    private Double price;
 }
