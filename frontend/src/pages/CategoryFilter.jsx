@@ -10,7 +10,7 @@ import {
 } from "@heroicons/react/solid";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
-import ListProducts from "../components/product/ListProducts";
+import ListProducts from "../components/list-products/ListProducts";
 
 const sortOptions = [
   { name: "Most Popular", href: "#", current: true },

@@ -3,8 +3,8 @@ import { LockClosedIcon } from "@heroicons/react/solid";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/slices/authSlice";
 import { useNavigate } from "react-router-dom";
-import Spinner from "../components/Spinner";
-import Alert from "../components/Alert";
+import Spinner from "../components/utils/Spinner";
+import Alert from "../components/utils/Alert";
 
 export default function SignIn() {
   const [username, setUsername] = useState("");

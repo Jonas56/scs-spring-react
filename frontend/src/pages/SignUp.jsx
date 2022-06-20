@@ -4,9 +4,9 @@ import useFormInputs from "../hooks/useFormInputs";
 import { useDispatch, useSelector } from "react-redux";
 import { register, reset } from "../redux/slices/authSlice";
 import { Link, useNavigate } from "react-router-dom";
-import Alert from "../components/Alert";
-import AlertSuccess from "../components/AlertSuccess";
-import Spinner from "../components/Spinner";
+import Alert from "../components/utils/Alert";
+import AlertSuccess from "../components/utils/AlertSuccess";
+import Spinner from "../components/utils/Spinner";
 
 export default function SignUp() {
   const [inputs, handleInputChange] = useFormInputs({
