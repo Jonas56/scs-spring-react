@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
 import useFormInputs from "../hooks/useFormInputs";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../redux/slices/authSlice";
+import { register, reset } from "../redux/slices/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import Alert from "../components/Alert";
 import AlertSuccess from "../components/AlertSuccess";
@@ -23,7 +23,7 @@ export default function SignUp() {
   const navigate = useNavigate();
   const [spinner, setSpinner] = useState(false);
 
-  let { status, message } = useSelector((state) => state.auth);
+  let { user, status, message } = useSelector((state) => state.auth);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,8 +47,11 @@ export default function SignUp() {
       setTimeout(() => {
         setSignedUp(false);
       }, 7000);
+    } else if (user) {
+      navigate("/");
     }
-  }, [status, message, setError, navigate]);
+    dispatch(reset());
+  }, [user, status, message, setError, navigate, dispatch]);
 
   return (
     <>

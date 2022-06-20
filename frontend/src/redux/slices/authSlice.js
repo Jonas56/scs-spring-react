@@ -75,14 +75,14 @@ export const authSlice = createSlice({
       })
       // login
       .addCase(login.pending, (state) => {
-        state.state = "loading";
+        state.status = "loading";
       })
       .addCase(login.fulfilled, (state, action) => {
-        state.state = "succeeded";
+        state.status = "succeeded";
         state.user = action.payload;
       })
       .addCase(login.rejected, (state, action) => {
-        state.state = "failed";
+        state.status = "failed";
         state.message = action.payload;
         state.user = null;
       })
