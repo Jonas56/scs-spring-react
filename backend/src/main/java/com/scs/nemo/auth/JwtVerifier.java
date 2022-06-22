@@ -24,8 +24,8 @@ public class JwtVerifier extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
         if (request.getRequestURI().equals("/api/v1/register") ||
-                request.getRequestURI().matches("/api/v1/products/.*") ||
-                request.getRequestURI().equals("/api/v1/products")) {
+                ((request.getRequestURI().matches("/api/v1/products/.*") && request.getMethod().equalsIgnoreCase("GET")) ||
+                        (request.getRequestURI().equals("/api/v1/products") && request.getMethod().equalsIgnoreCase("GET")))) {
             filterChain.doFilter(request, response);
             return;
         }

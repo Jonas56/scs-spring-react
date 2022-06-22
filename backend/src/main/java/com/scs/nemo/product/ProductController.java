@@ -1,6 +1,7 @@
 package com.scs.nemo.product;
 
 import com.scs.nemo.order.dto.OrderResponseDto;
+import com.scs.nemo.product.dto.ProductDetailsResponseDto;
 import com.scs.nemo.product.dto.ProductResponseDto;
 import com.scs.nemo.review.Review;
 import com.scs.nemo.review.dto.ReviewRequestDto;
@@ -32,8 +33,8 @@ public class ProductController {
     }
 
     @GetMapping("/products/{productId}")
-    public Product getProductById(@PathVariable Long productId) {
-        return productService.getProductById(productId);
+    public ProductDetailsResponseDto getProductById(@PathVariable Long productId) {
+        return modelMapper.map(productService.getProductById(productId), ProductDetailsResponseDto.class);
     }
 
     // Add review
