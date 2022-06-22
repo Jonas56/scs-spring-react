@@ -20,7 +20,6 @@ const cartSlice = createSlice({
   reducers: {
     addToCart(state, action) {
       const { cartItem } = action.payload;
-      console.log(cartItem);
       const { cartItems } = state;
       const productIndex = cartItems.findIndex(
         (item) => item.id === cartItem.id
@@ -64,13 +63,9 @@ const cartSlice = createSlice({
       // save to localStrorage
       localStorage.setItem("userCart", JSON.stringify(state));
     },
-    getCartItems(state) {
-      return state;
-    },
   },
 });
 
-// our selectors
 export const { addToCart, removeFromCart, getCartItems } = cartSlice.actions;
 
 export default cartSlice.reducer;
