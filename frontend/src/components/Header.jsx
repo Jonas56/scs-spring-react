@@ -147,6 +147,10 @@ export default function Header() {
   const [cartOpen, setCartOpen] = useState(false);
   const { user } = useSelector((state) => state.auth);
 
+  const handleOpen = () => {
+    setCartOpen(!cartOpen);
+  };
+
   return (
     <div className="bg-white">
       {/* Mobile menu */}
@@ -307,7 +311,7 @@ export default function Header() {
                       </div>
                       <div className="flow-root">
                         <Link
-                          to="/register"
+                          to="/signup"
                           className="-m-2 p-2 block font-medium text-gray-900"
                         >
                           Create account
@@ -516,7 +520,7 @@ export default function Header() {
                         aria-hidden="true"
                       />
                       <Link
-                        to="/register"
+                        to="/signup"
                         className="text-sm font-medium text-gray-700 hover:text-gray-800"
                       >
                         Create account
@@ -557,7 +561,9 @@ export default function Header() {
                 </div>
 
                 {/* Cart */}
-                {cartOpen && <ShoppingCart />}
+                {cartOpen && (
+                  <ShoppingCart cartOpen={cartOpen} handleOpen={handleOpen} />
+                )}
                 <div className="ml-4 flow-root lg:ml-6">
                   <button
                     className="group -m-2 p-2 flex items-center"

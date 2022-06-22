@@ -9,6 +9,7 @@ import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import ModalSuccess from "./components/product/ModalSuccess";
 
 const App = () => {
   return (
@@ -24,6 +25,8 @@ const App = () => {
 
           <Route path="products" element={<CategoryFilter />} />
           <Route path="products/:id" element={<ProductDetails />} />
+
+          <Route path="/modal" element={<ModalSuccess />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

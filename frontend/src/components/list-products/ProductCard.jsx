@@ -13,12 +13,12 @@ const ProductCard = ({ product }) => {
       </div>
       <div className="mt-4 flex justify-between">
         <div>
-          <h3 className="text-sm text-gray-700">
-            <Link to={`/products/${product.id}`}>
+          <Link to={`/products/${product.id}`}>
+            <h3 className="text-sm text-gray-700">
               <span aria-hidden="true" className="absolute inset-0" />
               {product.name}
-            </Link>
-          </h3>
+            </h3>
+          </Link>
           <p className="mt-1 text-sm text-gray-500">{product.category}</p>
         </div>
         <p className="text-sm font-medium text-gray-900">
