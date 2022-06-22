@@ -48,7 +48,6 @@ export default function ProductDetails() {
       try {
         const response = await httpGetProduct(params.id);
         setProduct(response);
-        console.log(response);
       } catch (error) {
         navigate("/404");
       }
@@ -65,7 +64,6 @@ export default function ProductDetails() {
 
   const handleAddToCart = (e) => {
     e.preventDefault();
-    console.log("Add to cart");
     const cartItem = {
       id: product.id,
       name: product.name,
