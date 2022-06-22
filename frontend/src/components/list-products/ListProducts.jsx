@@ -72,7 +72,7 @@ export default function ListProducts() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const response = await httpGetAllProducts("token");
+        const response = await httpGetAllProducts();
         setProducts(response);
       } catch (error) {
         setError("Ooops! Something went wrong. Please try again later.");

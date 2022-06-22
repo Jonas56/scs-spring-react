@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
 import CartItem from "./CartItem";
@@ -31,12 +31,10 @@ const products = [
   // More products...
 ];
 
-export default function ShoppingCart() {
-  const [open, setOpen] = useState(true);
-
+export default function ShoppingCart({ cartOpen, handleOpen }) {
   return (
-    <Transition.Root show={open} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={() => setOpen(false)}>
+    <Transition.Root show={cartOpen} as={Fragment}>
+      <Dialog as="div" className="relative z-10" onClose={handleOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
@@ -73,7 +71,7 @@ export default function ShoppingCart() {
                           <button
                             type="button"
                             className="-m-2 p-2 text-gray-400 hover:text-gray-500"
-                            onClick={() => setOpen(false)}
+                            onClick={handleOpen}
                           >
                             <span className="sr-only">Close panel</span>
                             <XIcon className="h-6 w-6" aria-hidden="true" />
@@ -114,7 +112,7 @@ export default function ShoppingCart() {
                           <button
                             type="button"
                             className="font-medium text-indigo-600 hover:text-indigo-500"
-                            onClick={() => setOpen(false)}
+                            onClick={handleOpen}
                           >
                             Continue Shopping
                             <span aria-hidden="true"> &rarr;</span>

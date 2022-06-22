@@ -18,16 +18,17 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addProduct: (state, action) => {
-      const { product } = action.payload;
+    addToCart(state, action) {
+      const { cartItem } = action.payload;
+      console.log(cartItem);
       const { cartItems } = state;
       const productIndex = cartItems.findIndex(
-        (item) => item.id === product.id
+        (item) => item.id === cartItem.id
       );
       if (productIndex === -1) {
-        state.cartItems.push(product);
+        state.cartItems.push(cartItem);
       } else {
-        state.cartItems[productIndex].quantity = product.quantity;
+        state.cartItems[productIndex].quantity = cartItem.quantity;
       }
       state.cartTotalQuantity = state.cartItems.reduce(
         (total, item) => total + item.quantity,
@@ -41,11 +42,12 @@ const cartSlice = createSlice({
       // save to localStrorage
       localStorage.setItem("userCart", JSON.stringify(state));
     },
-    removeProduct: (state, action) => {
-      const { product } = action.payload;
+    removeFromCart(state, action) {
+      const { cartItem } = action.payload;
+
       const { cartItems } = state;
       const productIndex = cartItems.findIndex(
-        (item) => item.id === product.id
+        (item) => item.id === cartItem.id
       );
       if (productIndex !== -1) {
         state.cartItems.splice(productIndex, 1);
@@ -62,10 +64,13 @@ const cartSlice = createSlice({
       // save to localStrorage
       localStorage.setItem("userCart", JSON.stringify(state));
     },
+    getCartItems(state) {
+      return state;
+    },
   },
 });
 
 // our selectors
-export const selectProducts = (state) => state.cart.products;
+export const { addToCart, removeFromCart, getCartItems } = cartSlice.actions;
 
 export default cartSlice.reducer;

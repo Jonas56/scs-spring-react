@@ -2,15 +2,12 @@ import axios from "axios";
 const BASE_URL = "/api/v1";
 
 async function httpGetAllProducts(token) {
-  const config = {
-    headers: { Authorization: token },
-  };
-  const response = await axios.get(BASE_URL + "/products", config);
+  const response = await axios.get(BASE_URL + "/products");
   return response.data;
 }
 
 async function httpGetProduct(productId) {
-  const response = await axios.get(BASE_URL + "/products" + productId);
+  const response = await axios.get(BASE_URL + "/products/" + productId);
   return response.data;
 }
 
@@ -24,14 +21,12 @@ async function httpAddProduct(product, token) {
 
 async function httpAddReview(productId, review, token) {
   const config = {
-    headers: { Authorization: token },
+    headers: { Authorization: "Bearer " + token },
   };
+  console.log("Product ID: ", productId, "Token", token, "Review", review);
   const response = await axios.post(
-    BASE_URL + "/products/" + { productId } + "/reviews",
-    {
-      productId,
-      review,
-    },
+    BASE_URL + "/products/" + productId + "/reviews",
+    review,
     config
   );
   return response.data;
