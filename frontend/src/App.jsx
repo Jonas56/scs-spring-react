@@ -10,28 +10,29 @@ import SignIn from "./pages/SignIn";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import ModalSuccess from "./components/product/ModalSuccess";
-
+import AddImage from "./components/Add-Image"
+import MyProfil from "./pages/MyProfil"
 const App = () => {
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Home />} />
+      <Provider store={store}>
+        <BrowserRouter>
+          <Routes>
+            <Route index element={<Home />} />
 
-          <Route path="login" element={<SignIn />} />
-          <Route path="signup" element={<SignUp />} />
+            <Route path="login" element={<SignIn />} />
+            <Route path="signup" element={<SignUp />} />
 
-          <Route path="checkout" element={<Checkout />} />
+            <Route path="checkout" element={<Checkout />} />
 
-          <Route path="products" element={<CategoryFilter />} />
-          <Route path="products/:id" element={<ProductDetails />} />
-
+            <Route path="products" element={<CategoryFilter />} />
+            <Route path="products/:id" element={<ProductDetails />} />
+            <Route path="myProfil" element={<MyProfil/>} />
           <Route path="/modal" element={<ModalSuccess />} />
-
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </Provider>
+          <Route path="/addImage" element={<AddImage/>} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </Provider>
   );
 };
 
