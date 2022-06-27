@@ -9,7 +9,7 @@ import lombok.*;
 @AllArgsConstructor
 @Getter
 @Setter
-public class OrderDetailsDto {
+public class OrderDetailsRequestDto {
     private ProductForOrderDetails product;
     private Integer quantity;
     private Long totalPrice;

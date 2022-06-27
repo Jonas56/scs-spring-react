@@ -29,6 +29,7 @@ public class LoadToDatabase {
         return args -> {
             log.info("Preloading " + userService.register(modelMapper.map(userRequestDto, User.class)));
             log.info("Preloading " + productRepository.save(new Product("Tesla", "Model S", "category", 100.0)));
+            log.info("Preloading " + productRepository.save(new Product("Jonas", "Strict", "category", 100.0)));
         };
     }
 }

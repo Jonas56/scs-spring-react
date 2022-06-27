@@ -18,5 +18,5 @@ public class OrderRequestDto {
     @NotNull(message = "Total cannot be empty!")
     private Long orderTotal;
     @NotEmpty(message = "Order details cannot be empty!")
-    private Set<OrderDetails> orderDetails;
+    private Set<OrderDetailsRequestDto> orderDetails;
 }
