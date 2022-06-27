@@ -38,7 +38,6 @@ export default function ShoppingCart({ cartOpen, handleOpen }) {
   useEffect(() => {
     if (cartSelector.cartItems.length > 0) {
       setCart(cartSelector);
-      console.log(cart);
     }
   }, [cartSelector, cart]);
 

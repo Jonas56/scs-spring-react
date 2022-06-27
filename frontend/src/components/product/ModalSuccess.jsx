@@ -42,24 +42,28 @@ export default function ModalSuccess({
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    <p className="flex">
-                      {" "}
-                      Product Added to Cart Successfully
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </p>
+                    <div className="flex flex-row">
+                      <p className="flex">
+                        {" "}
+                        Product Added to Cart Successfully
+                      </p>
+                      <div className="mx-2 text-green-500 py-1">
+                        <svg
+                          className="w-6 h-6"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                          ></path>
+                        </svg>
+                      </div>
+                    </div>
                   </Dialog.Title>
                   <div className="mt-2">
                     <p className="text-sm text-gray-500">

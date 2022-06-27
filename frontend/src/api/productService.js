@@ -23,7 +23,6 @@ async function httpAddReview(productId, review, token) {
   const config = {
     headers: { Authorization: "Bearer " + token },
   };
-  console.log("Product ID: ", productId, "Token", token, "Review", review);
   const response = await axios.post(
     BASE_URL + "/products/" + productId + "/reviews",
     review,
