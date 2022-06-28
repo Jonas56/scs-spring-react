@@ -1,6 +1,7 @@
 package com.scs.nemo.order;
 
-import com.scs.nemo.order.dto.OrderRequestDto;
+import com.scs.nemo.product.dto.order.OrderDetails;
+import com.scs.nemo.product.dto.order.dto.OrderRequestDto;
 import com.scs.nemo.product.Product;
 
 import java.util.HashSet;

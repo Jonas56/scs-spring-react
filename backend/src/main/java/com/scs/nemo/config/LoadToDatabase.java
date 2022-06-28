@@ -12,7 +12,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
 @Configuration
 public class LoadToDatabase {
 
@@ -28,7 +27,7 @@ public class LoadToDatabase {
     CommandLineRunner initDatabase(IUserService userService, ModelMapper modelMapper, ProductRepository productRepository) {
         return args -> {
             log.info("Preloading " + userService.register(modelMapper.map(userRequestDto, User.class)));
-            log.info("Preloading " + productRepository.save(new Product("Tesla", "Model S", "category", 100.0)));
+//            log.info("Preloading " + productRepository.save(new Product( "Tesla", "Model S", "category",100.00)));
         };
     }
 }
