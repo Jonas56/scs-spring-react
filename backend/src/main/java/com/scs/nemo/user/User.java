@@ -2,7 +2,7 @@ package com.scs.nemo.user;
 
 import com.scs.nemo.fileUpload.DatabaseFile;
 import com.scs.nemo.review.Review;
-import com.scs.nemo.product.dto.order.Order;
+import com.scs.nemo.order.Order;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,6 +1,6 @@
-package com.scs.nemo.product.dto.order.dto;
+package com.scs.nemo.order.dto;
 
-import com.scs.nemo.product.dto.order.OrderStatus;
+import com.scs.nemo.order.OrderStatus;
 import lombok.*;
 
 import java.util.Date;

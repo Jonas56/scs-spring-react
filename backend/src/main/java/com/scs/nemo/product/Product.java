@@ -77,25 +77,4 @@ public class Product {
         reviews.add(review);
     }
 
-    public void updateReview(Long reviewId, Review review) {
-        reviews.stream()
-                .filter(r -> r.getId().equals(reviewId))
-                .findFirst()
-                .ifPresent(r -> {
-                    r.setComment(review.getComment());
-                    r.setRating(review.getRating());
-                    r.setIsHelpful(review.getIsHelpful());
-                });
-    }
-
-    public void deleteReview(Long reviewId) {
-        reviews.removeIf(r -> r.getId().equals(reviewId));
-    }
-
-    public void updateIsHelpful(Long reviewId, Boolean isHelpful) {
-        reviews.stream()
-                .filter(r -> r.getId().equals(reviewId))
-                .findFirst()
-                .ifPresent(r -> r.setIsHelpful(isHelpful ? r.getIsHelpful() + 1 : r.getIsHelpful() - 1));
-    }
 }

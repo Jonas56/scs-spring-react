@@ -211,7 +211,7 @@ export default function ProductDetails() {
                       Features
                     </h3>
                     <a
-                      href="#"
+                      href="https://localhost:3000/#"
                       className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
                     >
                       Feature guide

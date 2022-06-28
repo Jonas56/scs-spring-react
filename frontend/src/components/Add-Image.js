@@ -1,40 +1,38 @@
-import { useEffect, useState,useNavigate } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { IoMdCloseCircle } from "react-icons/io";
-import {httpAddImage,httpGetImage} from "./../api/Image"
+import { httpAddImage } from "./../api/Image";
 
-var token = "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJKb25hczU2IiwiaWF0IjoxNjU2MDE0ODcwLCJleHAiOjE2NTYwMjIwNzB9.1-AxM1E9ZCRy6wwCHg7yagDn7ngs6--k8gxekJ5XAYNjigvkUM3XI-AK0L7ETirs"
+var token =
+  "eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJKb25hczU2IiwiaWF0IjoxNjU2MDE0ODcwLCJleHAiOjE2NTYwMjIwNzB9.1-AxM1E9ZCRy6wwCHg7yagDn7ngs6--k8gxekJ5XAYNjigvkUM3XI-AK0L7ETirs";
 
 const AddImage = () => {
   const [error, setError] = useState(null);
- // const navigate = useNavigate();
   const [file, setFile] = useState(null);
-  const [imageUploaded, setImageUploaded] = useState(false);
-const [imagePreview, setImagePreview] = useState("");
+  const [imagePreview, setImagePreview] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(file);
     const formData = new FormData();
-    formData.append('file',file);  
-    
+    formData.append("file", file);
+
     try {
-      await httpAddImage(formData,token);
+      await httpAddImage(formData, token);
       //navigate(0, { state: { success: true } });
     } catch (error) {
       setError("Failed to add image");
     }
   };
-  
-const imagePreviewHandler = (e) => {
-  const reader = new FileReader();
-  reader.onload = () => {
-    if (reader.readyState === 2) {
-      setImagePreview(reader.result);
-    }
+
+  const imagePreviewHandler = (e) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setImagePreview(reader.result);
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
   };
-  reader.readAsDataURL(e.target.files[0]);
-};
   return (
     <>
       <div className="flex flex-col md:flex-row align-center justify-center gap-10 my-16">
@@ -76,12 +74,12 @@ const imagePreviewHandler = (e) => {
                 alt=""
                 className="rounded-md hover:scale-95 transition duration-500"
               />
-               <button
-            className="px-6 py-2 -mt-2 bg-white hover:bg-gray-700 text-gray-700 hover:text-white rounded-md max-w-xs self-center"
-            onClick={handleSubmit}
-           >
-            Add memorie
-          </button>
+              <button
+                className="px-6 py-2 -mt-2 bg-white hover:bg-gray-700 text-gray-700 hover:text-white rounded-md max-w-xs self-center"
+                onClick={handleSubmit}
+              >
+                Add memorie
+              </button>
             </div>
           )}
         </div>
@@ -91,4 +89,3 @@ const imagePreviewHandler = (e) => {
 };
 
 export default AddImage;
-

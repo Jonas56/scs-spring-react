@@ -1,4 +1,4 @@
-package com.scs.nemo.product.dto.order;
+package com.scs.nemo.order;
 
 import com.scs.nemo.product.Product;
 import lombok.AllArgsConstructor;

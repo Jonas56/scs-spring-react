@@ -1,6 +1,6 @@
 package com.scs.nemo.user.dto;
 
-import com.scs.nemo.product.dto.order.dto.OrderResponseDto;
+import com.scs.nemo.order.dto.OrderResponseDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
