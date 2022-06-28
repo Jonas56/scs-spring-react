@@ -1,5 +1,6 @@
 package com.scs.nemo.user;
 
+import com.scs.nemo.fileUpload.DatabaseFile;
 import com.scs.nemo.review.Review;
 import com.scs.nemo.order.Order;
 import lombok.AllArgsConstructor;
@@ -26,6 +27,10 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
+
+    @OneToOne
+    @JoinColumn(name = "database_file_id")
+    private DatabaseFile databaseFile;
 
     @OneToMany(
             mappedBy = "user",

@@ -13,6 +13,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/api/v1", produces = "application/json")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
     private final IUserService userService;

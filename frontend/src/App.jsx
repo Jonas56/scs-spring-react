@@ -11,6 +11,7 @@ import OrderPlaced from "./pages/OrderPlaced";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 
+import MyProfil from "./pages/MyProfil";
 const App = () => {
   return (
     <Provider store={store}>
@@ -24,9 +25,12 @@ const App = () => {
           <Route path="checkout" element={<Checkout />} />
 
           <Route path="products" element={<CategoryFilter />} />
+
           <Route path="products/:id" element={<ProductDetails />} />
 
-          <Route path="/success" element={<OrderPlaced />} />
+          <Route path="profile" element={<MyProfil />} />
+
+          <Route path="success" element={<OrderPlaced />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

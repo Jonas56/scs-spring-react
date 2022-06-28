@@ -25,7 +25,11 @@ public class JwtVerifier extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) throws ServletException, IOException {
         if (request.getRequestURI().equals("/api/v1/register") ||
                 ((request.getRequestURI().matches("/api/v1/products/.*") && request.getMethod().equalsIgnoreCase("GET")) ||
-                        (request.getRequestURI().equals("/api/v1/products") && request.getMethod().equalsIgnoreCase("GET")))) {
+                        (request.getRequestURI().equals("/api/v1/products") && request.getMethod().equalsIgnoreCase("GET"))) ||
+                (request.getRequestURI().equals("/api/v1/uploadFile") && request.getMethod().equalsIgnoreCase("POST"))
+        || (request.getRequestURI().equals("/api/v1/downloadFile/{fileName:.+}") && request.getMethod().equalsIgnoreCase("GET"))
+                || (request.getRequestURI().equals("/api/v1/downloadFile1/.*") && request.getMethod().equalsIgnoreCase("GET"))
+                || (request.getRequestURI().equals("/api/v1/downloadFile1/{fileName:.+}") && request.getMethod().equalsIgnoreCase("GET"))) {
             filterChain.doFilter(request, response);
             return;
         }

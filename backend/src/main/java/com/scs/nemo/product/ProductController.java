@@ -1,6 +1,5 @@
 package com.scs.nemo.product;
 
-import com.scs.nemo.order.dto.OrderResponseDto;
 import com.scs.nemo.product.dto.ProductDetailsResponseDto;
 import com.scs.nemo.product.dto.ProductResponseDto;
 import com.scs.nemo.review.Review;
