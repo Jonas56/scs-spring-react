@@ -10,8 +10,8 @@ import SignIn from "./pages/SignIn";
 import OrderPlaced from "./pages/OrderPlaced";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import Profile from "./pages/Profile2";
 
-import MyProfil from "./pages/MyProfil";
 const App = () => {
   return (
     <Provider store={store}>
@@ -28,7 +28,7 @@ const App = () => {
 
           <Route path="products/:id" element={<ProductDetails />} />
 
-          <Route path="profile" element={<MyProfil />} />
+          <Route path="profile" element={<Profile />} />
 
           <Route path="success" element={<OrderPlaced />} />
 

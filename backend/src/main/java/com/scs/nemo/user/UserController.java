@@ -1,9 +1,6 @@
 package com.scs.nemo.user;
 
-import com.scs.nemo.user.dto.UserProfileResponseDto;
-import com.scs.nemo.user.dto.UserRequestDto;
-import com.scs.nemo.user.dto.UserRequestForProfileDto;
-import com.scs.nemo.user.dto.UserResponseDto;
+import com.scs.nemo.user.dto.*;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,7 +10,6 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/api/v1", produces = "application/json")
-@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
     private final IUserService userService;
@@ -35,9 +31,14 @@ public class UserController {
         return modelMapper.map(userService.getUserProfile(request), UserProfileResponseDto.class);
     }
 
-    @PutMapping("/users/edit")
+    @PutMapping("/user/edit")
     public UserResponseDto editUser(HttpServletRequest request, HttpServletResponse response, @RequestBody @Valid UserRequestForProfileDto userRequestDto) {
         User user = modelMapper.map(userRequestDto, User.class);
         return modelMapper.map(userService.editUser(request, response, user), UserResponseDto.class);
+    }
+
+    @PutMapping("/user/edit-password")
+    public String editPassword(HttpServletRequest request, HttpServletResponse response, @RequestBody @Valid UserPasswordRequestDto userRequestDto) {
+        return userService.editPassword(request, response, userRequestDto);
     }
 }

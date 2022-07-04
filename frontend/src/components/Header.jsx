@@ -146,6 +146,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const { user } = useSelector((state) => state.auth);
+  const cartSelector = useSelector((state) => state.cart);
 
   const handleOpen = () => {
     setCartOpen(!cartOpen);
@@ -574,7 +575,7 @@ export default function Header() {
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      0
+                      {cartSelector.cartTotalItems}
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </button>

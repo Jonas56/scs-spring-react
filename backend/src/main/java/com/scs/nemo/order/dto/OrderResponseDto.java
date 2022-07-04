@@ -12,9 +12,10 @@ import java.util.Set;
 @AllArgsConstructor(staticName = "build")
 @NoArgsConstructor
 public class OrderResponseDto {
+    private Long id;
     private String orderShipping;
+    private String orderNumber;
     private OrderStatus orderStatus;
     private Date orderDate;
     private Long orderTotal;
-    private Set<OrderDetailsDto> orderDetails;
 }

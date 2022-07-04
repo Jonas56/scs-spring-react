@@ -1,26 +1,19 @@
 package com.scs.nemo.fileUpload;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.nio.file.Path;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.scs.nemo.fileUpload.FileNotFoundException;
-import com.scs.nemo.fileUpload.FileStorageException;
-import com.scs.nemo.fileUpload.DatabaseFile;
-import com.scs.nemo.fileUpload.DatabaseFileRepository;
-
 @Service
 public class DatabaseFileService {
 
-    @Autowired
-    private DatabaseFileRepository dbFileRepository;
+    private final DatabaseFileRepository dbFileRepository;
+
+    public DatabaseFileService(DatabaseFileRepository dbFileRepository) {
+        this.dbFileRepository = dbFileRepository;
+    }
 
     public DatabaseFile storeFile(MultipartFile file) {
         // Normalize file name

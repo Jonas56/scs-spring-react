@@ -10,9 +10,15 @@ const ProductReview1 = ({ reviews }) => {
             Reviews
           </p>
         </div>
-        {reviews.map((review) => (
-          <Review key={review.id} review={review} />
-        ))}
+        {reviews.length === 0 ? (
+          <p className="mt-10 text-lg text-gray-500">No reviews yet!</p>
+        ) : (
+          <>
+            {reviews.map((review) => (
+              <Review key={review.id} review={review} />
+            ))}
+          </>
+        )}
       </div>
     </div>
   );

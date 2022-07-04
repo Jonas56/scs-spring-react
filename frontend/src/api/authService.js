@@ -10,8 +10,15 @@ async function httpLoginUser(credentials) {
 }
 
 async function httpRegisterUser(credentials) {
-  const { email, password, firstName, lastName, confirmPassword, username } =
-    credentials;
+  const {
+    email,
+    password,
+    firstName,
+    lastName,
+    confirmPassword,
+    username,
+    userAvatar,
+  } = credentials;
   if (password !== confirmPassword) {
     throw new Error("Passwords do not match. Please try again.");
   }
@@ -22,6 +29,7 @@ async function httpRegisterUser(credentials) {
     username,
     email,
     password,
+    userAvatar,
   });
   return response.data;
 }

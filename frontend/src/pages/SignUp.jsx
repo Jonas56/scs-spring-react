@@ -9,6 +9,7 @@ import AlertSuccess from "../components/utils/AlertSuccess";
 import Spinner from "../components/utils/Spinner";
 
 export default function SignUp() {
+  const userAvatar = "https://avatars.dicebear.com/api/male/";
   const [inputs, handleInputChange] = useFormInputs({
     firstName: "",
     lastName: "",
@@ -29,7 +30,13 @@ export default function SignUp() {
     e.preventDefault();
     const credentials = inputs;
     setSpinner(true);
-    dispatch(register(credentials));
+    dispatch(
+      register({
+        ...credentials,
+        userAvatar: userAvatar + credentials.username + ".svg",
+      })
+    );
+    document.getElementById("signup-form").reset();
   };
 
   useEffect(() => {
@@ -80,6 +87,7 @@ export default function SignUp() {
           <form
             className="mt-8 space-y-6 bg-white p-8 rounded-md shadow-md"
             onSubmit={handleSubmit}
+            id="signup-form"
           >
             {error && <Alert error={error} />}
             {signedUp && <AlertSuccess />}
