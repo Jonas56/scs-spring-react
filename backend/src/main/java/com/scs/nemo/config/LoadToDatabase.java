@@ -20,7 +20,8 @@ public class LoadToDatabase {
             "Jonas Tesla",
             "Jonas56",
             "jonas@tesla.com",
-            "Jonas.@123"
+            "Jonas.@123",
+            "https://avatars.dicebear.com/api/male/jonas56.svg"
     );
 
     @Bean

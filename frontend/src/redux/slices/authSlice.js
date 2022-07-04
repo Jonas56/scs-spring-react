@@ -16,6 +16,7 @@ export const register = createAsyncThunk(
   "auth/register",
   async (credentials, thunkAPI) => {
     try {
+      console.log(credentials);
       return await httpRegisterUser(credentials);
     } catch (error) {
       const message =

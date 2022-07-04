@@ -7,7 +7,7 @@ function classNames(...classes) {
 }
 
 export default function Review({ review }) {
-  const [menu, setMenu] = useState(true);
+  const [menu, setMenu] = useState(false);
   return (
     <div
       id="reviews"
@@ -52,15 +52,12 @@ export default function Review({ review }) {
       </div>
       {/* className={"md:block " + (menu1 ? "block" : "hidden")} */}
       <div className={"md:block " + (menu ? "block" : "hidden")}>
-        <p className="mt-3 text-base leading-normal text-gray-600 w-full md:w-9/12 xl:w-5/6">
+        <p className="mt-3 text-base leading-normal text-gray-600 w-full">
           {review.comment}
         </p>
         <div className="mt-6 flex justify-start items-center flex-row space-x-2.5">
-          <div>
-            <img
-              src="https://i.ibb.co/QcqyrVG/Mask-Group.png"
-              alt="girl-avatar"
-            />
+          <div className="h-auto w-11">
+            <img src={review.user.userAvatar} alt="user-avatar" />
           </div>
           <div className="flex flex-col justify-start items-start space-y-2">
             <p className="text-base font-medium leading-none text-gray-800">

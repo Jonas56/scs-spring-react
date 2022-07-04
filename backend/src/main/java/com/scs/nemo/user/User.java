@@ -27,10 +27,7 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
-
-    @OneToOne
-    @JoinColumn(name = "database_file_id")
-    private DatabaseFile databaseFile;
+    private String userAvatar;
 
     @OneToMany(
             mappedBy = "user",
