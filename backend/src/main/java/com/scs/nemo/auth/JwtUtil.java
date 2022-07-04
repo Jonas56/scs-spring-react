@@ -55,6 +55,6 @@ public class JwtUtil {
                 .signWith(Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8)))
                 .compact();
 
-        response.setHeader(AUTH_HEADER, "Bearer " + refreshedToken);
+        response.setHeader(AUTH_HEADER, refreshedToken);
     }
 }

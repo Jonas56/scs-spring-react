@@ -1,7 +1,7 @@
 import axios from "axios";
 const BASE_URL = "/api/v1";
 
-async function httpGetAllProducts(token) {
+async function httpGetAllProducts() {
   const response = await axios.get(BASE_URL + "/products");
   return response.data;
 }
