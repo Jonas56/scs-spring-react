@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/slices/authSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Spinner from "../components/utils/Spinner";
 import Alert from "../components/utils/Alert";
 
@@ -14,6 +14,7 @@ export default function SignIn() {
   const [spinner, setSpinner] = useState(false);
 
   const { user, status, message } = useSelector((state) => state.auth);
+  const [query] = useSearchParams();
 
   const dispatch = useDispatch();
 
@@ -33,14 +34,19 @@ export default function SignIn() {
     }, 1000);
     if (status === "failed") {
       setError(message);
-      console.log(message);
       setTimeout(() => {
         setError(null);
       }, 5000);
     } else if (status === "succeeded" || user) {
-      navigate("/");
+      if (query.get("profile")) {
+        navigate("/profile");
+      } else if (query.get("checkout")) {
+        navigate("/checkout");
+      } else {
+        navigate("/");
+      }
     }
-  }, [status, message, setError, user, navigate]);
+  }, [status, message, setError, user, navigate, query]);
 
   return (
     <>

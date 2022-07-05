@@ -10,7 +10,7 @@ import SignIn from "./pages/SignIn";
 import OrderPlaced from "./pages/OrderPlaced";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import Profile from "./pages/Profile2";
+import Profile from "./pages/Profile";
 
 const App = () => {
   return (

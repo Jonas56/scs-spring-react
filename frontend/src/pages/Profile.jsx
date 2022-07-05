@@ -3,8 +3,9 @@ import Header from "../components/Header";
 import Orders from "../components/profile/Orders";
 import EditProfile from "../components/profile/EditProfile";
 import ProfileImage from "../components/profile/ProfileImage";
-import { useSelector } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../redux/slices/authSlice";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { httpGetUserProfile } from "../api/userService";
 
@@ -13,6 +14,7 @@ export default function Profile2() {
   const navigate = useNavigate("");
 
   const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     async function getUserDetails() {
@@ -26,9 +28,14 @@ export default function Profile2() {
     if (user) {
       getUserDetails();
     } else {
-      navigate("/login");
+      navigate("/login?profile=true");
     }
   }, [user, navigate]);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/");
+  };
 
   return (
     <>
@@ -62,7 +69,7 @@ export default function Profile2() {
                 <li className="flex items-center py-3">
                   <span>Logout</span>
                   <span className="ml-auto">
-                    <Link className="text-indigo-500" to="/logout">
+                    <button className="text-indigo-500" onClick={handleLogout}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="h-6 w-6"
@@ -77,7 +84,7 @@ export default function Profile2() {
                           d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
                         />
                       </svg>
-                    </Link>
+                    </button>
                   </span>
                 </li>
               </ul>
