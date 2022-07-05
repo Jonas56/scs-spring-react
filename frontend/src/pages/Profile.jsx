@@ -45,7 +45,10 @@ export default function Profile2() {
           <div className="w-full md:w-3/12 md:mx-2">
             <div className="bg-white p-3">
               <div className="overflow-hidden">
-                <ProfileImage avatar={userDetails?.userAvatar} />
+                <ProfileImage
+                  avatar={userDetails?.userAvatar}
+                  token={user.accessToken}
+                />
               </div>
               <h1 className="text-gray-900 font-bold text-xl leading-8 my-1">
                 Jane Doe

@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { httpAddImage } from "../../api/Image";
+import { useNavigate } from "react-router-dom";
 
-const ProfileImage = ({ avatar }) => {
+const ProfileImage = ({ avatar, token }) => {
   const [error, setError] = useState(null);
   const [file, setFile] = useState(null);
   const [imagePreview, setImagePreview] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,9 +15,13 @@ const ProfileImage = ({ avatar }) => {
     formData.append("file", file);
 
     try {
-      await httpAddImage(formData);
+      await httpAddImage(formData, token);
+      navigate(0);
     } catch (error) {
       setError("Failed to add image");
+      setTimeout(() => {
+        setError(null);
+      }, 3000);
     }
   };
 
@@ -30,7 +36,7 @@ const ProfileImage = ({ avatar }) => {
   };
   return (
     <>
-      {error}
+      {<p className="text-red-500 text-sm">{error}</p>}
       <div className="flex flex-col md:flex-row align-center justify-center">
         <div className="flex h-96 items-center justify-center ">
           {imagePreview === "" ? (

@@ -39,13 +39,12 @@ public class FileController {
 
     @PostMapping("/uploadFile")
     public FileResponseDto uploadFile(@RequestParam("file") MultipartFile file, HttpServletRequest request) {
-        DatabaseFile fileName = fileStorageService.storeFile(file);
+        DatabaseFile fileName = fileStorageService.storeFile(file, request);
 
         String fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/api/v1/downloadFile/")
                 .path(fileName.getFileName())
                 .toUriString();
-        System.out.println(fileDownloadUri);
         return new FileResponseDto(fileName.getFileName(), fileDownloadUri,
                 file.getContentType(), file.getSize());
     }

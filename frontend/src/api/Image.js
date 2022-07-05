@@ -1,8 +1,10 @@
 import axios from "axios";
 const BASE_URL = "/api/v1";
-async function httpAddImage(image) {
-  console.log(image);
-  const response = await axios.post(BASE_URL + "/uploadFile", image);
+async function httpAddImage(image, token) {
+  const config = {
+    headers: { Authorization: "Bearer " + token },
+  };
+  const response = await axios.post(BASE_URL + "/uploadFile", image, config);
   return response.data;
 }
 

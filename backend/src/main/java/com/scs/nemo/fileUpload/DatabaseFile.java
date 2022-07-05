@@ -26,9 +26,6 @@ public class DatabaseFile {
     @Lob
     private byte[] data;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private User user;
 
     public DatabaseFile(String fileName, String fileType, byte[] data) {
         this.fileName = fileName;
@@ -36,3 +33,4 @@ public class DatabaseFile {
         this.data = data;
     }
 }
+
