@@ -45,11 +45,11 @@ export default function BreadCrumb({ product }) {
         </li>
         <li className="text-sm">
           <Link
-            to={`/products/${product.id}`}
+            to={`/products/${product?.id}`}
             aria-current="page"
             className="font-medium text-gray-500 hover:text-gray-600"
           >
-            {product.name}
+            {product?.name}
           </Link>
         </li>
       </ol>

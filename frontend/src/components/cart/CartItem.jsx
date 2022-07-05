@@ -32,7 +32,7 @@ export default function CartItem({ product }) {
             </h3>
             <p className="ml-4">${product.price}</p>
           </div>
-          <p className="mt-1 text-sm text-gray-500">blue{product?.color}</p>
+          <p className="mt-1 text-sm text-gray-500">{product?.color}</p>
         </div>
         <div className="flex flex-1 items-end justify-between text-sm">
           <p className="text-gray-500">Qty {product.quantity}</p>

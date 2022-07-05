@@ -1,5 +1,6 @@
 package com.scs.nemo.product.dto;
 
+import com.scs.nemo.product.ProductColors;
 import com.scs.nemo.product.ProductFeature;
 import com.scs.nemo.product.ProductImage;
 import com.scs.nemo.review.dto.ReviewResponseDto;
@@ -22,4 +23,5 @@ public class ProductDetailsResponseDto {
     private Set<ProductImage> images;
     private Set<ReviewResponseDto> reviews;
     private Set<ProductFeature> features;
+    private Set<ProductColors> colors;
 }
