@@ -45,5 +45,9 @@ public class User {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private List<Order> orders;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_avatar_id")
+    private DatabaseFile userAvatarFile;
+
 }
 
