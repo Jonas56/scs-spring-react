@@ -1,42 +1,19 @@
-import React from "react";
-import Home from "./pages/Home";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import ProductDetails from "./pages/ProductDetails";
-import Checkout from "./pages/Checkout";
-import CategoryFilter from "./pages/CategoryFilter";
-import NotFound from "./pages/404";
-import SignUp from "./pages/SignUp";
-import SignIn from "./pages/SignIn";
-import OrderPlaced from "./pages/OrderPlaced";
-import { Provider } from "react-redux";
-import { store } from "./redux/store";
-import Profile from "./pages/Profile";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { logout } from "./redux/slices/authSlice";
+import AppRouter from "./components/AppRouter";
+import expired from "./api/config";
 
 const App = () => {
-  return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Home />} />
+  const dispatch = useDispatch();
 
-          <Route path="login" element={<SignIn />} />
-          <Route path="signup" element={<SignUp />} />
+  useEffect(() => {
+    if (expired) {
+      dispatch(logout());
+    }
+  }, [dispatch]);
 
-          <Route path="checkout" element={<Checkout />} />
-
-          <Route path="products" element={<CategoryFilter />} />
-
-          <Route path="products/:id" element={<ProductDetails />} />
-
-          <Route path="profile" element={<Profile />} />
-
-          <Route path="success" element={<OrderPlaced />} />
-
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </Provider>
-  );
+  return <AppRouter />;
 };
 
 export default App;
