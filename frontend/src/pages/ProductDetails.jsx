@@ -55,7 +55,7 @@ export default function ProductDetails() {
       price: product.price,
       image: product?.images[0]?.path,
       quantity: quantity,
-      color: selectedColor.name,
+      color: selectedColor?.name,
     };
     try {
       dispatch(addToCart({ cartItem }));

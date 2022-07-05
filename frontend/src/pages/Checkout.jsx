@@ -25,7 +25,7 @@ export default function Checkout() {
 
   useEffect(() => {
     if (!user) {
-      navigate("/login");
+      navigate("/login?checkout=true");
     }
     if (cartSelector.cartItems.length > 0) {
       setCart(cartSelector);
