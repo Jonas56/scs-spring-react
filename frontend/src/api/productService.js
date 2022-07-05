@@ -8,6 +8,7 @@ async function httpGetAllProducts() {
 
 async function httpGetProduct(productId) {
   const response = await axios.get(BASE_URL + "/products/" + productId);
+  console.log(response.data);
   return response.data;
 }
 

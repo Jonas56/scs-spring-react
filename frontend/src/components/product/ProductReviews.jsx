@@ -10,12 +10,12 @@ const ProductReview1 = ({ reviews }) => {
             Reviews
           </p>
         </div>
-        {reviews.length === 0 ? (
+        {reviews?.length === 0 ? (
           <p className="mt-10 text-lg text-gray-500">No reviews yet!</p>
         ) : (
           <>
-            {reviews.map((review) => (
-              <Review key={review.id} review={review} />
+            {reviews?.map((review) => (
+              <Review key={review?.id} review={review} />
             ))}
           </>
         )}

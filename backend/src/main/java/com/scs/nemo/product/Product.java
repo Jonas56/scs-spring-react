@@ -62,6 +62,20 @@ public class Product {
             )
     private Set<ProductFeature> features;
 
+    @ManyToMany
+            (
+                    targetEntity = ProductColors.class,
+                    fetch = FetchType.EAGER,
+                    cascade = CascadeType.ALL
+            )
+    @JoinTable
+            (
+                    name = "product_colors",
+                    joinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id"),
+                    inverseJoinColumns = @JoinColumn(name = "color_id", referencedColumnName = "id")
+            )
+    private Set<ProductColors> colors;
+
     public Product(long id) {
         this.id = id;
     }

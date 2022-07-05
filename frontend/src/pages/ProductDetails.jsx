@@ -12,31 +12,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../redux/slices/cartSlice";
 import ModalSuccess from "../components/product/ModalSuccess";
 
-const sampleProduct = {
-  id: 1,
-  name: "Basic Tee",
-  description: "description",
-  category: "category",
-  images: [
-    {
-      path: "image_path",
-    },
-  ],
-  price: "35",
-  avg: 3.0,
-  reviews: [],
-  features: [{ name: "Size" }],
-};
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function ProductDetails() {
   const params = useParams("id");
-  const [selectedFeature, setSelectedFeature] = useState("");
   const navigate = useNavigate();
-  const [product, setProduct] = useState(sampleProduct);
+  const [product, setProduct] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -48,6 +32,7 @@ export default function ProductDetails() {
       try {
         const response = await httpGetProduct(params.id);
         setProduct(response);
+        setSelectedColor(response.colors[0]);
       } catch (error) {
         navigate("/404");
       }
@@ -70,7 +55,7 @@ export default function ProductDetails() {
       price: product.price,
       image: product?.images[0]?.path,
       quantity: quantity,
-      feature: selectedFeature,
+      color: selectedColor.name,
     };
     try {
       dispatch(addToCart({ cartItem }));
@@ -204,63 +189,51 @@ export default function ProductDetails() {
               </div>
 
               <form className="mt-10" onSubmit={handleAddToCart}>
-                {/* Features */}
-                <div className="mt-10">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-sm text-gray-900 font-medium">
-                      Features
-                    </h3>
-                    <a
-                      href="https://localhost:3000/#"
-                      className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                    >
-                      Feature guide
-                    </a>
-                  </div>
+                {/* Colors */}
+                <div>
+                  <h3 className="text-sm text-gray-900 font-medium">Color</h3>
 
                   <RadioGroup
-                    value={selectedFeature}
-                    onChange={setSelectedFeature}
+                    value={selectedColor}
+                    onChange={setSelectedColor}
                     className="mt-4"
                   >
                     <RadioGroup.Label className="sr-only">
-                      Choose a feature
+                      Choose a color
                     </RadioGroup.Label>
-                    <div className="grid grid-cols-4 gap-4 sm:grid-cols-8 lg:grid-cols-4">
-                      {product?.features?.map((feature) => (
-                        <RadioGroup.Option
-                          key={feature.name}
-                          value={feature}
-                          className={({ active }) =>
-                            classNames(
-                              "bg-white shadow-sm text-gray-900 cursor-pointer",
-                              active ? "ring-2 ring-indigo-500" : "",
-                              "group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 sm:py-6"
-                            )
-                          }
-                        >
-                          {({ active, checked }) => (
-                            <>
-                              <RadioGroup.Label as="span">
-                                {feature.name}
-                              </RadioGroup.Label>
-                              <span
-                                className={classNames(
-                                  active ? "border" : "border-2",
-                                  checked
-                                    ? "border-indigo-500"
-                                    : "border-transparent",
-                                  "absolute -inset-px rounded-md pointer-events-none"
-                                )}
-                                aria-hidden="true"
-                              />
-                            </>
-                          )}
-                        </RadioGroup.Option>
-                      ))}
+                    <div className="flex items-center space-x-3">
+                      {product?.colors.map((color) => {
+                        console.log(color);
+                        return (
+                          <RadioGroup.Option
+                            key={color.name}
+                            value={color}
+                            className={({ active, checked }) =>
+                              classNames(
+                                color.selectedClass,
+                                active && checked ? "ring ring-offset-1" : "",
+                                !active && checked ? "ring-2" : "",
+                                "-m-0.5 relative p-0.5 rounded-full flex items-center justify-center cursor-pointer focus:outline-none"
+                              )
+                            }
+                          >
+                            <RadioGroup.Label as="span" className="sr-only">
+                              {color.name}
+                            </RadioGroup.Label>
+                            <span
+                              aria-hidden="true"
+                              className={classNames(
+                                color.className,
+                                "h-8 w-8 border border-black border-opacity-10 rounded-full"
+                              )}
+                            />
+                          </RadioGroup.Option>
+                        );
+                      })}
                     </div>
                   </RadioGroup>
                 </div>
+
                 <div className="text-center flex justify-end">
                   <p className="text-lg text-gray-900 font-medium mr-10 py-2">
                     Qty:
@@ -311,12 +284,14 @@ export default function ProductDetails() {
                 <div className="mt-4">
                   <ul className="pl-4 list-disc text-sm space-y-2">
                     {/* TODO: Add highlights */}
-                    {/* {product.highlights.map((highlight) => (
-                      <li key={highlight} className="text-gray-400">
-                        <span className="text-gray-600">{highlight}</span>
+                    {product?.features.map((feature) => (
+                      <li key={feature} className="text-gray-400">
+                        <span className="text-gray-600">{feature.name}</span>
                       </li>
-                    ))} */}
-                    <span className="text-gray-600">Highlight</span>
+                    ))}
+                    <li className="text-gray-400">
+                      <span className="text-gray-600">Highlight</span>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -333,7 +308,7 @@ export default function ProductDetails() {
             </div>
           </div>
           {/* Comment Section */}
-          <ProductReviews reviews={product.reviews} />
+          <ProductReviews reviews={product?.reviews} />
         </div>
       </div>
 
