@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-import React, { useState, useEffect } from "react";
-=======
-import React, { useState } from "react";
 import { FaSuitcaseRolling, FaSpeakerDeck } from "react-icons/fa";
 
-import { httpLoginUser } from "../api/auth/authService";
->>>>>>> 3d674b8 (Website Content added #42)
+//import { httpLoginUser } from "../api/auth/authService";
+import React, { useState, useEffect } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/slices/authSlice";
@@ -74,11 +70,7 @@ export default function SignIn() {
             <p className="mt-2 text-center text-sm text-gray-600">
               Or{" "}
               <a
-<<<<<<< HEAD
                 href="/signup"
-=======
-                href="signup"
->>>>>>> 3d674b8 (Website Content added #42)
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 create a new one

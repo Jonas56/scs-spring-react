@@ -9,10 +9,7 @@ import {
   MenuIcon,
   SearchIcon,
   ShoppingBagIcon,
-<<<<<<< HEAD
   UserIcon,
-=======
->>>>>>> 3d674b8 (Website Content added #42)
 } from "@heroicons/react/outline";
 
 
@@ -194,12 +191,9 @@ export default function Header() {
                     onClick={() => setOpen(false)}
                   >
                     <span className="sr-only">Close menu</span>
-<<<<<<< HEAD
-                    <i className="fa-solid fa-suitcase-rolling" /> SCS
-=======
+
                     <FaSuitcaseRolling className="h-8 w-auto inline fill-[#313178] "/> 
-                  <FaSpeakerDeck  className="h-8 w-auto inline fill-[#313178] "/>    
->>>>>>> 3d674b8 (Website Content added #42)
+                  <FaSpeakerDeck  className="h-8 w-auto inline fill-[#313178] "/> 
                   </button>
                 </div>
 
@@ -303,7 +297,7 @@ export default function Header() {
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4 space-y-6">
-<<<<<<< HEAD
+
                   {user ? (
                     <div className="flow-root">
                       <Link
@@ -333,24 +327,6 @@ export default function Header() {
                       </div>
                     </>
                   )}
-=======
-                  <div className="flow-root">
-                    <a
-                      href="signin"
-                      className="-m-2 p-2 block font-medium text-gray-900"
-                    >
-                      Sign in
-                    </a>
-                  </div>
-                  <div className="flow-root">
-                    <a
-                      href="signup"
-                      className="-m-2 p-2 block font-medium text-gray-900"
-                    >
-                      Create account
-                    </a>
-                  </div>
->>>>>>> 3d674b8 (Website Content added #42)
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4">
@@ -393,26 +369,16 @@ export default function Header() {
               >
                 <span className="sr-only">Open menu</span>
                 <MenuIcon className="h-6 w-6" aria-hidden="true" />
+                  
               </button>
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-<<<<<<< HEAD
                 <Link to="/">
                   <span className="sr-only">SCS</span>
-                  <img
-                    className="h-8 w-auto"
-                    src="https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png"
-                    alt=""
-                  />
-                </Link>
-=======
-                <a href="http://localhost:3000/#">
-                  <span className="sr-only">Workflow</span>
                   <FaSuitcaseRolling className="h-8 w-auto inline fill-[#313178] "/> 
-                  <FaSpeakerDeck  className="h-8 w-auto inline fill-[#313178] "/>          
-             </a>
->>>>>>> 3d674b8 (Website Content added #42)
+                  <FaSpeakerDeck  className="h-8 w-auto inline fill-[#313178] "/> 
+                </Link>
               </div>
 
               {/* Flyout menus */}
@@ -540,7 +506,6 @@ export default function Header() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-<<<<<<< HEAD
                   {user ? (
                     <Link to="/profile" className="flex">
                       <UserIcon className="h-5 w-5 text-gray-700 mx-2" />{" "}
@@ -568,21 +533,6 @@ export default function Header() {
                       </Link>
                     </>
                   )}
-=======
-                  <a
-                    href="signin"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Sign in
-                  </a>
-                  <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                  <a
-                    href="signup"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Create account
-                  </a>
->>>>>>> 3d674b8 (Website Content added #42)
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">
