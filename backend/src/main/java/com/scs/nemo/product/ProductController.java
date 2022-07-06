@@ -35,7 +35,10 @@ public class ProductController {
     public ProductDetailsResponseDto getProductById(@PathVariable Long productId) {
         return modelMapper.map(productService.getProductById(productId), ProductDetailsResponseDto.class);
     }
-
+    @GetMapping("/productsearch/{keyword}")
+    public ProductDetailsResponseDto getProductById(@PathVariable String keyword) {
+        return modelMapper.map(productService.getProductByLike(keyword), ProductDetailsResponseDto.class);
+    }
     // Add review
     @PostMapping("/products/{productId}/reviews")
     public void addReview(@PathVariable Long productId, @RequestBody ReviewRequestDto reviewRequestDto, HttpServletRequest request) {
