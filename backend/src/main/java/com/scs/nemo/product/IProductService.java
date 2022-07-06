@@ -11,7 +11,7 @@ public interface IProductService {
 
     Product getProductById(Long productId);
 
-    Product getProductByLike(String keyword);
+    List<Product> getProductLike(String keyword);
 
     void addReview(HttpServletRequest request, Long productId, Review review);
 }

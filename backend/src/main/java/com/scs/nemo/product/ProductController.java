@@ -36,8 +36,10 @@ public class ProductController {
         return modelMapper.map(productService.getProductById(productId), ProductDetailsResponseDto.class);
     }
     @GetMapping("/productsearch/{keyword}")
-    public ProductDetailsResponseDto getProductById(@PathVariable String keyword) {
-        return modelMapper.map(productService.getProductByLike(keyword), ProductDetailsResponseDto.class);
+    public List<ProductResponseDto> getProductsLike(@PathVariable String keyword) {
+        Type listType = new TypeToken<List<ProductResponseDto>>() {
+        }.getType(); // Get List<ProductResponseDto> type
+        return modelMapper.map(productService.getProductLike(keyword), listType); // Map List<Product> to List<ProductResponseDto>
     }
     // Add review
     @PostMapping("/products/{productId}/reviews")
