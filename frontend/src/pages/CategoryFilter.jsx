@@ -20,14 +20,14 @@ const sortOptions = [
   { name: "Price: High to Low", href: "#", current: false },
 ];
 const subCategories = [
-  { name: "Totes", href: "#" },
+  { name: "Suitcases", href: "#" },
+  { name: "Bags", href: "#" },
   { name: "Backpacks", href: "#" },
-  { name: "Travel Bags", href: "#" },
-  { name: "Hip Bags", href: "#" },
-  { name: "Laptop Sleeves", href: "#" },
+ // { name: "Hip Bags", href: "#" },
+ // { name: "Laptop Sleeves", href: "#" },
 ];
 const filters = [
-  {
+ /* {
     id: "color",
     name: "Color",
     options: [
@@ -38,28 +38,27 @@ const filters = [
       { value: "green", label: "Green", checked: false },
       { value: "purple", label: "Purple", checked: false },
     ],
-  },
+  },*/
   {
-    id: "category",
-    name: "Category",
+    id: "categories",
+    name: "Categories",
     options: [
-      { value: "new-arrivals", label: "New Arrivals", checked: false },
-      { value: "sale", label: "Sale", checked: false },
-      { value: "travel", label: "Travel", checked: true },
-      { value: "organization", label: "Organization", checked: false },
-      { value: "accessories", label: "Accessories", checked: false },
+      { value: "new-arrivals", label: "New Arrivals", checked: true },
+      { value: "sales", label: "Sales", checked: false },
+      { value: "suitcases", label: "Suitcases", checked: false },
+      { value: "bags", label: "Bags", checked: false },
+      { value: "backbags", label: "Backbags", checked: false },
     ],
   },
   {
-    id: "size",
-    name: "Size",
+    id: "features",
+    name: "Features",
     options: [
-      { value: "2l", label: "2L", checked: false },
-      { value: "6l", label: "6L", checked: false },
-      { value: "12l", label: "12L", checked: false },
-      { value: "18l", label: "18L", checked: false },
-      { value: "20l", label: "20L", checked: false },
-      { value: "40l", label: "40L", checked: true },
+      { value: "Smart_Lock&unLock", label: "Smart Lock & unLock", checked: false },
+      { value: "digital_scale", label: "Digital Scale", checked: false },
+      { value: "location_tracking", label: "Location Tracking", checked: false },
+      { value: "distance_alerts", label: "Distance Alerts", checked: false },
+      { value: "battery_charger", label: "Battery Charger", checked: false },
     ],
   },
 ];
@@ -200,7 +199,7 @@ export default function CategoryFilter() {
           <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative z-10 flex items-baseline justify-between pt-24 pb-6 border-b border-gray-200">
               <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
-                New Arrivals
+                Our Products
               </h1>
 
               <div className="flex items-center">

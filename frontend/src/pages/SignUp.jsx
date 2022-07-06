@@ -7,6 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Alert from "../components/utils/Alert";
 import AlertSuccess from "../components/utils/AlertSuccess";
 import Spinner from "../components/utils/Spinner";
+import { FaSuitcaseRolling, FaSpeakerDeck } from "react-icons/fa";
 
 export default function SignUp() {
   const userAvatar = "https://avatars.dicebear.com/api/male/";
@@ -66,11 +67,11 @@ export default function SignUp() {
         {spinner && <Spinner />}
         <div className="max-w-md w-full space-y-8">
           <div>
-            <img
-              className="mx-auto h-20 w-auto"
-              src="https://download.logo.wine/logo/React_(web_framework)/React_(web_framework)-Logo.wine.png"
-              alt="Workflow"
-            />
+          <a href="http://localhost:3000/">
+                  
+                  <FaSuitcaseRolling className="mx-auto h-10 w-auto  fill-[#313178] "/> 
+                  <FaSpeakerDeck  className="mx-auto h-10 w-auto  fill-[#313178] "/>          
+             </a>
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
               Sign up to your new account
             </h2>
