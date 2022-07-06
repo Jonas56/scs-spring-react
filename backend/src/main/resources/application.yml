@@ -16,8 +16,8 @@ spring:
 #      client:
 #        registration:
 #          github:
-#            clientId: github-client-id
-#            clientSecret: github-client-secret
+#            clientId:
+#            clientSecret:
 server:
   port: 8081
   error:

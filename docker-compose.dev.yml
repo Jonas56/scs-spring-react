@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+
+  mysql_db:
+    image: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: nemodb
+    volumes:
+      - nemo_mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    container_name: mysql_app_db
+
+
+volumes:
+  nemo_mysql:
