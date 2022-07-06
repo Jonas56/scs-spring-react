@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+
 import { FaSuitcaseRolling, FaSpeakerDeck } from "react-icons/fa";
 
-import { httpLoginUser } from "../api/auth/authService";
+//import { httpLoginUser } from "../api/auth/authService";
+import React, { useState, useEffect } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../redux/slices/authSlice";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import Spinner from "../components/utils/Spinner";
+import Alert from "../components/utils/Alert";
 
 export default function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
-  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  const [spinner, setSpinner] = useState(false);
+
+  const { user, status, message } = useSelector((state) => state.auth);
+  const [query] = useSearchParams();
+
+  const dispatch = useDispatch();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -16,21 +28,34 @@ export default function SignIn() {
       username,
       password,
     };
-    try {
-      const response = await httpLoginUser(credentials);
-      setUser(response);
-      window.localStorage.setItem("loggedNoteappUser", JSON.stringify(user));
-    } catch {
-      setError("Wrong Credentials");
+    setSpinner(true);
+    dispatch(login(credentials));
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSpinner(false);
+    }, 1000);
+    if (status === "failed") {
+      setError(message);
       setTimeout(() => {
         setError(null);
       }, 5000);
+    } else if (status === "succeeded" || user) {
+      if (query.get("profile")) {
+        navigate("/profile");
+      } else if (query.get("checkout")) {
+        navigate("/checkout");
+      } else {
+        navigate("/");
+      }
     }
-  };
+  }, [status, message, setError, user, navigate, query]);
 
   return (
     <>
       <div className="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-gray-100 h-100">
+        {spinner && <Spinner />}
         <div className="max-w-md w-full space-y-8">
           <div>
         
@@ -46,7 +71,9 @@ export default function SignIn() {
             <p className="mt-2 text-center text-sm text-gray-600">
               Or{" "}
               <a
-                href="signup"
+
+                href="/signup"
+
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 create a new one
@@ -57,7 +84,7 @@ export default function SignIn() {
             className="mt-8 space-y-6 bg-white p-8 rounded-md shadow-md"
             onSubmit={handleLogin}
           >
-            {error && <p>{error}</p>}
+            {error && <Alert error={error} />}
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>

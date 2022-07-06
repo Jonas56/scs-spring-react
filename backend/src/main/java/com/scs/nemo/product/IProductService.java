@@ -2,6 +2,7 @@ package com.scs.nemo.product;
 
 import com.scs.nemo.review.Review;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface IProductService {
@@ -10,5 +11,5 @@ public interface IProductService {
 
     Product getProductById(Long productId);
 
-    Product addReview(Long productId, Review review);
+    void addReview(HttpServletRequest request, Long productId, Review review);
 }

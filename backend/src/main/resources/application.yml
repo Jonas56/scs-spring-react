@@ -11,6 +11,13 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
         format_sql: true
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          github:
+#            clientId: github-client-id
+#            clientSecret: github-client-secret
 server:
   port: 8081
   error:

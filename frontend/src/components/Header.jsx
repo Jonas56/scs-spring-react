@@ -2,11 +2,14 @@ import React, { Fragment, useState } from "react";
 import { FaSuitcaseRolling, FaSpeakerDeck } from "react-icons/fa";
 
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
-import ShoppingCart from "./ShoppingCart";
+import ShoppingCart from "./cart/ShoppingCart";
+import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 import {
   MenuIcon,
   SearchIcon,
   ShoppingBagIcon,
+  UserIcon,
 } from "@heroicons/react/outline";
 
 
@@ -146,6 +149,12 @@ function classNames(...classes) {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+  const { user } = useSelector((state) => state.auth);
+  const cartSelector = useSelector((state) => state.cart);
+
+  const handleOpen = () => {
+    setCartOpen(!cartOpen);
+  };
 
   return (
     <div className="bg-white">
@@ -183,7 +192,7 @@ export default function Header() {
                   >
                     <span className="sr-only">Close menu</span>
                     <FaSuitcaseRolling className="h-8 w-auto inline fill-[#313178] "/> 
-                  <FaSpeakerDeck  className="h-8 w-auto inline fill-[#313178] "/>    
+                  <FaSpeakerDeck  className="h-8 w-auto inline fill-[#313178] "/> 
                   </button>
                 </div>
 
@@ -287,22 +296,35 @@ export default function Header() {
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4 space-y-6">
-                  <div className="flow-root">
-                    <a
-                      href="signin"
-                      className="-m-2 p-2 block font-medium text-gray-900"
-                    >
-                      Sign in
-                    </a>
-                  </div>
-                  <div className="flow-root">
-                    <a
-                      href="signup"
-                      className="-m-2 p-2 block font-medium text-gray-900"
-                    >
-                      Create account
-                    </a>
-                  </div>
+                  {user ? (
+                    <div className="flow-root">
+                      <Link
+                        to="/profile"
+                        className="-m-2 p-2 block font-medium text-gray-900"
+                      >
+                        My Account
+                      </Link>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="flow-root">
+                        <Link
+                          to="/login"
+                          className="-m-2 p-2 block font-medium text-gray-900"
+                        >
+                          Sign in
+                        </Link>
+                      </div>
+                      <div className="flow-root">
+                        <Link
+                          to="/signup"
+                          className="-m-2 p-2 block font-medium text-gray-900"
+                        >
+                          Create account
+                        </Link>
+                      </div>
+                    </>
+                  )}
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4">
@@ -345,15 +367,16 @@ export default function Header() {
               >
                 <span className="sr-only">Open menu</span>
                 <MenuIcon className="h-6 w-6" aria-hidden="true" />
+                  
               </button>
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
-                <a href="http://localhost:3000/#">
-                  <span className="sr-only">Workflow</span>
+                <Link to="/">
+                  <span className="sr-only">SCS</span>
                   <FaSuitcaseRolling className="h-8 w-auto inline fill-[#313178] "/> 
-                  <FaSpeakerDeck  className="h-8 w-auto inline fill-[#313178] "/>          
-             </a>
+                  <FaSpeakerDeck  className="h-8 w-auto inline fill-[#313178] "/> 
+                </Link>
               </div>
 
               {/* Flyout menus */}
@@ -481,19 +504,33 @@ export default function Header() {
 
               <div className="ml-auto flex items-center">
                 <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                  <a
-                    href="signin"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Sign in
-                  </a>
-                  <span className="h-6 w-px bg-gray-200" aria-hidden="true" />
-                  <a
-                    href="signup"
-                    className="text-sm font-medium text-gray-700 hover:text-gray-800"
-                  >
-                    Create account
-                  </a>
+                  {user ? (
+                    <Link to="/profile" className="flex">
+                      <UserIcon className="h-5 w-5 text-gray-700 mx-2" />{" "}
+                      <span className="text-sm font-medium text-gray-700 hover:text-gray-800">
+                        {user.username}
+                      </span>
+                    </Link>
+                  ) : (
+                    <>
+                      <Link
+                        to="/login"
+                        className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                      >
+                        Sign in
+                      </Link>
+                      <span
+                        className="h-6 w-px bg-gray-200"
+                        aria-hidden="true"
+                      />
+                      <Link
+                        to="/signup"
+                        className="text-sm font-medium text-gray-700 hover:text-gray-800"
+                      >
+                        Create account
+                      </Link>
+                    </>
+                  )}
                 </div>
 
                 <div className="hidden lg:ml-8 lg:flex">
@@ -528,7 +565,9 @@ export default function Header() {
                 </div>
 
                 {/* Cart */}
-                {cartOpen && <ShoppingCart />}
+                {cartOpen && (
+                  <ShoppingCart cartOpen={cartOpen} handleOpen={handleOpen} />
+                )}
                 <div className="ml-4 flow-root lg:ml-6">
                   <button
                     className="group -m-2 p-2 flex items-center"
@@ -539,7 +578,7 @@ export default function Header() {
                       aria-hidden="true"
                     />
                     <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-                      0
+                      {cartSelector.cartTotalItems}
                     </span>
                     <span className="sr-only">items in cart, view bag</span>
                   </button>

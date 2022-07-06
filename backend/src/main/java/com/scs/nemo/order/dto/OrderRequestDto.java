@@ -1,6 +1,5 @@
 package com.scs.nemo.order.dto;
 
-import com.scs.nemo.order.OrderDetails;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,5 +17,5 @@ public class OrderRequestDto {
     @NotNull(message = "Total cannot be empty!")
     private Long orderTotal;
     @NotEmpty(message = "Order details cannot be empty!")
-    private Set<OrderDetails> orderDetails;
+    private Set<OrderDetailsRequestDto> orderDetails;
 }

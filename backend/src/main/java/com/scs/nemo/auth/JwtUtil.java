@@ -15,7 +15,7 @@ public class JwtUtil {
 
     public static final String SECRET = "mySecretsecretmySecretsecretmySecretsecretmySecretsecret";
     public static final String AUTH_HEADER = "Authorization";
-    public static final long EXPIRATION_ACCESS_TOKEN = 1000 * 60 * 60 * 2; // 2 hours
+    public static final long EXPIRATION_ACCESS_TOKEN = 1000 * 60 * 60 * 24 * 2; // 2 hours
     public static final long EXPIRATION_REFRESH_TOKEN = 1000 * 60 * 60 * 24 * 2; // 2 days
 
     public static Jws<Claims> extractClaimsFromToken(HttpServletRequest request) {
@@ -55,6 +55,6 @@ public class JwtUtil {
                 .signWith(Keys.hmacShaKeyFor(SECRET.getBytes(StandardCharsets.UTF_8)))
                 .compact();
 
-        response.setHeader(AUTH_HEADER, "Bearer " + refreshedToken);
+        response.setHeader(AUTH_HEADER, refreshedToken);
     }
 }

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const callouts = [
   {
     name: "Style and technology",
@@ -6,7 +8,7 @@ const callouts = [
       "https://www.linkpicture.com/q/suitcase1.jpg",
     imageAlt:
       "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
-    href: "#",
+    href: "/products",
   },
   {
     name: "Adventures",
@@ -15,7 +17,7 @@ const callouts = [
       "https://www.linkpicture.com/q/bag1_1.jpg",
     imageAlt:
       "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
-    href: "#",
+    href: "/products",
   },
   {
     name: "Travel",
@@ -23,7 +25,7 @@ const callouts = [
     imageSrc:
     "https://www.linkpicture.com/q/backpack_1.jpg",
     imageAlt: "Collection of four insulated travel bottles on wooden shelf.",
-    href: "#",
+    href: "/products",
   },
 ];
 
@@ -36,9 +38,12 @@ export default function Collection() {
             <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               Collections
             </h2>
-            <a href="/#" className="text-indigo-700 p-2 font-bold text-base">
+            <Link
+              to="/products"
+              className="text-indigo-700 p-2 font-bold text-base"
+            >
               Browse All categories &rarr;
-            </a>
+            </Link>
           </div>
 
           <div className="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-x-6">
@@ -52,10 +57,10 @@ export default function Collection() {
                   />
                 </div>
                 <h3 className="mt-6 text-sm text-gray-500">
-                  <a href={callout.href}>
+                  <Link to={callout.href}>
                     <span className="absolute inset-0" />
                     {callout.name}
-                  </a>
+                  </Link>
                 </h3>
                 <p className="text-base font-semibold text-gray-900">
                   {callout.description}

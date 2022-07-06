@@ -1,6 +1,7 @@
 package com.scs.nemo.user;
 
 import com.scs.nemo.auth.JwtUtil;
+import com.scs.nemo.user.dto.UserPasswordRequestDto;
 import com.scs.nemo.user.dto.UserRequestForProfileDto;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -59,5 +60,25 @@ public class UserServiceImp implements IUserService {
             JwtUtil.refreshToken(response, userUpdated.getUsername());
         }
         return userUpdated;
+    }
+
+    @Override
+    public String editPassword(HttpServletRequest request, HttpServletResponse response, UserPasswordRequestDto user) {
+        String username = JwtUtil.extractUsernameFromRequest(request);
+        if (!passwordEncoder.matches(user.getOldPassword(), userRepository.findByUsername(username).get().getPassword())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Old password is incorrect");
+        }
+        if (user.getNewPassword().equals(user.getOldPassword())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "New password must be different from old password");
+        }
+        User updatedUser = userRepository.findByUsername(username)
+                .map(u -> {
+                    u.setPassword(passwordEncoder.encode(user.getNewPassword()));
+                    return userRepository.save(u);
+                })
+                .orElseThrow(
+                        () -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "User with username " + username + " not found")
+                );
+        return "Password updated successfully";
     }
 }

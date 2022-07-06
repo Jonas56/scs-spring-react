@@ -14,5 +14,35 @@ services:
       - "3306:3306"
     container_name: mysql_nemo_db
 
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+      - frontend
+    container_name: spring_backend
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/nemodb
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_JPA_HIBERNATE_DDL_AUTO: create-drop
+  
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: react_frontend
+    restart: unless-stopped
+
+  proxy:
+    image: nginx
+    restart: unless-stopped
+    container_name: reverse_proxy
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+
+
 volumes:
   nemo_mysql:

@@ -1,5 +1,6 @@
 package com.scs.nemo.user;
 
+import com.scs.nemo.fileUpload.DatabaseFile;
 import com.scs.nemo.review.Review;
 import com.scs.nemo.order.Order;
 import lombok.AllArgsConstructor;
@@ -26,6 +27,7 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
+    private String userAvatar;
 
     @OneToMany(
             mappedBy = "user",
@@ -42,6 +44,10 @@ public class User {
     )
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private List<Order> orders;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_avatar_id")
+    private DatabaseFile userAvatarFile;
 
 }
 

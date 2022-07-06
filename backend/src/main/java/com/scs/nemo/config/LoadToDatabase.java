@@ -20,14 +20,16 @@ public class LoadToDatabase {
             "Jonas Tesla",
             "Jonas56",
             "jonas@tesla.com",
-            "Jonas.@123"
+            "Jonas.@123",
+            "https://avatars.dicebear.com/api/male/jonas56.svg"
     );
 
     @Bean
     CommandLineRunner initDatabase(IUserService userService, ModelMapper modelMapper, ProductRepository productRepository) {
         return args -> {
             log.info("Preloading " + userService.register(modelMapper.map(userRequestDto, User.class)));
-            log.info("Preloading " + productRepository.save(new Product( "Tesla", "Model S", "category")));
+            log.info("Preloading " + productRepository.save(new Product("Tesla", "Model S", "category", 100.0)));
+            log.info("Preloading " + productRepository.save(new Product("Jonas", "Strict", "category", 100.0)));
         };
     }
 }

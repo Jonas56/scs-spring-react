@@ -14,5 +14,6 @@ public class UserProfileResponseDto {
     private String name;
     private String username;
     private String email;
+    private String userAvatar;
     private List<OrderResponseDto> orders;
 }

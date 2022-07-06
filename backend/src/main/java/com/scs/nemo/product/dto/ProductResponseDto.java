@@ -1,6 +1,7 @@
 package com.scs.nemo.product.dto;
 
 import com.scs.nemo.product.ProductImage;
+import com.scs.nemo.review.dto.ReviewResponseDto;
 import lombok.*;
 
 import java.util.Set;
@@ -17,4 +18,5 @@ public class ProductResponseDto {
     private String category;
     private Set<ProductImage> images;
     private Double avg;
+    private Double price;
 }

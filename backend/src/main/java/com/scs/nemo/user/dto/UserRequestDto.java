@@ -27,4 +27,5 @@ public class UserRequestDto {
                     "One number and one special character"
     )
     private String password;
+    private String userAvatar;
 }
