@@ -191,6 +191,7 @@ export default function Header() {
                     onClick={() => setOpen(false)}
                   >
                     <span className="sr-only">Close menu</span>
+
                     <FaSuitcaseRolling className="h-8 w-auto inline fill-[#313178] "/> 
                   <FaSpeakerDeck  className="h-8 w-auto inline fill-[#313178] "/> 
                   </button>
@@ -296,6 +297,7 @@ export default function Header() {
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4 space-y-6">
+
                   {user ? (
                     <div className="flow-root">
                       <Link

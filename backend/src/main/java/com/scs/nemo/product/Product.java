@@ -91,4 +91,19 @@ public class Product {
         reviews.add(review);
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", category='" + category + '\'' +
+                ", avg=" + avg +
+                ", price=" + price +
+                ", images=" + images +
+                ", reviews=" + reviews +
+                ", features=" + features +
+                ", colors=" + colors +
+                '}';
+    }
 }

@@ -1,4 +1,3 @@
-
 import { FaSuitcaseRolling, FaSpeakerDeck } from "react-icons/fa";
 
 //import { httpLoginUser } from "../api/auth/authService";
@@ -71,9 +70,7 @@ export default function SignIn() {
             <p className="mt-2 text-center text-sm text-gray-600">
               Or{" "}
               <a
-
                 href="/signup"
-
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 create a new one

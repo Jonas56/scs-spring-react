@@ -30,7 +30,12 @@ public class ProductServiceImp implements IProductService {
         return productRepository.findById(id).orElseThrow(() -> new ResponseStatusException(
                 HttpStatus.NOT_FOUND, "Product not found"));
     }
-
+    public List<Product> getProductLike(String keyword) {
+        System.out.println(productRepository.getProductsLike(keyword));
+        return productRepository.getProductsLike(keyword);
+//                .orElseThrow(() -> new ResponseStatusException(
+//                HttpStatus.NOT_FOUND, "Product not found"));
+    }
     @Override
     public void addReview(HttpServletRequest request, Long id, Review review) {
         String username = JwtUtil.extractUsernameFromRequest(request); // Get username from JWT
