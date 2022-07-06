@@ -11,7 +11,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query("select avg(r.rating) from Product p join p.reviews r where p.id= :id ")
     Double getAVG(Long id);
-    @Query(value = "select * from products p inner join reviews r on r.product_id = p.id where p.description like %:keyword% or r.comment like %:keyword%",nativeQuery = true)
+    @Query(value = "select * from products p left join reviews r on r.product_id = p.id where p.description like %:keyword% or r.comment like %:keyword%",nativeQuery = true)
     Optional<Product> getProductLike(String keyword);
 
 
