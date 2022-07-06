@@ -103,6 +103,15 @@
             <scope>test</scope>
         </dependency>
         <!--   h2 db Test -->
+
+        <!--   Swagger -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.8</version>
+        </dependency>
+        <!--   Swagger  -->
+
     </dependencies>
 
     <build>
