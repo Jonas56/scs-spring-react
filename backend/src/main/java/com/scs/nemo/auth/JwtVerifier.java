@@ -28,7 +28,9 @@ public class JwtVerifier extends OncePerRequestFilter {
                         (request.getRequestURI().equals("/api/v1/products") && request.getMethod().equalsIgnoreCase("GET")))
                 || (request.getRequestURI().equals("/api/v1/downloadFile/{fileName:.+}") && request.getMethod().equalsIgnoreCase("GET"))
                 || (request.getRequestURI().matches("/api/v1/downloadFile/.*") && request.getMethod().equalsIgnoreCase("GET"))
-                || (request.getRequestURI().equals("/api/v1/downloadFile1/{fileName:.+}") && request.getMethod().equalsIgnoreCase("GET"))) {
+                || (request.getRequestURI().equals("/api/v1/downloadFile1/{fileName:.+}") && request.getMethod().equalsIgnoreCase("GET"))
+                || request.getRequestURI().contains("/swagger-ui")
+                || request.getRequestURI().contains("/v3/api-docs")) {
             filterChain.doFilter(request, response);
             return;
         }
