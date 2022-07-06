@@ -21,40 +21,40 @@ public class OrderControllerTests extends AbstractTest {
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-//        accessToken = super.authenticate();
+        accessToken = super.authenticate();
     }
 
     @Test
     void shouldSuccessfullyGetAllOrders() throws Exception {
         // Given
-//        String uri = "/api/v1/orders";
-//        // When
-//        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(uri)
-//                .header("Authorization", "Bearer " + accessToken)
-//        ).andReturn();
-//        // Then
-//        int status = mvcResult.getResponse().getStatus();
-//        assertEquals(200, status);
-//        List<Order> orders = super.mapFromJson(mvcResult.getResponse().getContentAsString(), List.class);
-//        assertThat(orders).isNotNull();
+        String uri = "/api/v1/orders";
+        // When
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(uri)
+                .header("Authorization", "Bearer " + accessToken)
+        ).andReturn();
+        // Then
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(200, status);
+        List<OrderResponseDto> orders = super.mapFromJson(mvcResult.getResponse().getContentAsString(), List.class);
+        assertThat(orders).isNotNull();
     }
 
     @Test
     void shouldSuccessfullyAddNewOrder() throws Exception {
         // given
-//        String uri = "/api/v1/orders";
-//        String inputJson = super.mapToJson(OrderHelper.buildOrderDto());
-//        // when
-//        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.post(uri)
-//                .header("Authorization", "Bearer " + accessToken)
-//                .contentType(MediaType.APPLICATION_JSON_VALUE)
-//                .content(inputJson)
-//        ).andReturn();
-//
-//        // then
-//        int status = mvcResult.getResponse().getStatus();
-//        assertEquals(201, status);
-//        OrderResponseDto orderResponse = super.mapFromJson(mvcResult.getResponse().getContentAsString(), OrderResponseDto.class);
-//        assertThat(orderResponse).isNotNull();
+        String uri = "/api/v1/orders";
+        String inputJson = super.mapToJson(OrderHelper.buildOrderDto());
+        // when
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.post(uri)
+                .header("Authorization", "Bearer " + accessToken)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .content(inputJson)
+        ).andReturn();
+
+        // then
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(201, status);
+        OrderResponseDto orderResponse = super.mapFromJson(mvcResult.getResponse().getContentAsString(), OrderResponseDto.class);
+        assertThat(orderResponse).isNotNull();
     }
 }
