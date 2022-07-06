@@ -21,22 +21,22 @@ public class OrderControllerTests extends AbstractTest {
     @Override
     protected void setUp() throws Exception {
         super.setUp();
-//        accessToken = super.authenticate();
+        accessToken = super.authenticate();
     }
 
     @Test
     void shouldSuccessfullyGetAllOrders() throws Exception {
-//        // Given
-//        String uri = "/api/v1/orders";
-//        // When
-//        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(uri)
-//                .header("Authorization", "Bearer " + accessToken)
-//        ).andReturn();
-//        // Then
-//        int status = mvcResult.getResponse().getStatus();
-//        assertEquals(200, status);
-//        List<OrderResponseDto> orders = super.mapFromJson(mvcResult.getResponse().getContentAsString(), List.class);
-//        assertThat(orders).isNotNull();
+        // Given
+        String uri = "/api/v1/orders";
+        // When
+        MvcResult mvcResult = mvc.perform(MockMvcRequestBuilders.get(uri)
+                .header("Authorization", "Bearer " + accessToken)
+        ).andReturn();
+        // Then
+        int status = mvcResult.getResponse().getStatus();
+        assertEquals(200, status);
+        List<OrderResponseDto> orders = super.mapFromJson(mvcResult.getResponse().getContentAsString(), List.class);
+        assertThat(orders).isNotNull();
     }
 
     @Test
