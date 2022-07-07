@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { httpGetUserProfile } from "../api/userService";
 
-export default function Profile2() {
+export default function Profile() {
   const [userDetails, setUserDetails] = useState(null);
   const navigate = useNavigate("");
 

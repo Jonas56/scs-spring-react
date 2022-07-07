@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Fragment, useState } from "react";
 import { FaSuitcaseRolling, FaSpeakerDeck } from "react-icons/fa";
 
@@ -12,7 +13,6 @@ import {
   UserIcon,
 } from "@heroicons/react/outline";
 
-
 const navigation = {
   categories: [
     {
@@ -22,16 +22,14 @@ const navigation = {
         {
           name: "Suitcase",
           href: "#",
-          imageSrc:
-            "https://www.linkpicture.com/q/men1.jpg",
+          imageSrc: "https://www.linkpicture.com/q/men1.jpg",
           imageAlt:
             "Models sitting back to back, wearing Basic Tee in black and bone.",
         },
         {
           name: "Bag",
           href: "#",
-          imageSrc:
-            "https://i.ibb.co/0CXMDT2/men2.jpg",
+          imageSrc: "https://i.ibb.co/0CXMDT2/men2.jpg",
           imageAlt:
             "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
         },
@@ -46,10 +44,10 @@ const navigation = {
             { name: "Suitcases", href: "#" },
             { name: "Bags", href: "#" },
             { name: "Backpacks", href: "#" },
-     
-          //  { name: "T-Shirts", href: "#" },
-          //  { name: "Jackets", href: "#" },
-          //  { name: "Browse All", href: "#" },
+
+            //  { name: "T-Shirts", href: "#" },
+            //  { name: "Jackets", href: "#" },
+            //  { name: "Browse All", href: "#" },
           ],
         },
         {
@@ -70,7 +68,6 @@ const navigation = {
             { name: "For Men", href: "#" },
             { name: "For Women", href: "#" },
             { name: "For Kids", href: "#" },
-           
           ],
         },
       ],
@@ -82,8 +79,7 @@ const navigation = {
         {
           name: "Suitcase",
           href: "#",
-          imageSrc:
-            " https://i.ibb.co/tD4Qk3C/women1.jpg",
+          imageSrc: " https://i.ibb.co/tD4Qk3C/women1.jpg",
           imageAlt:
             "Models sitting back to back, wearing Basic Tee in black and bone.",
         },
@@ -106,10 +102,10 @@ const navigation = {
             { name: "Suitcases", href: "#" },
             { name: "Bags", href: "#" },
             { name: "Backpacks", href: "#" },
-     
-          //  { name: "T-Shirts", href: "#" },
-          //  { name: "Jackets", href: "#" },
-          //  { name: "Browse All", href: "#" },
+
+            //  { name: "T-Shirts", href: "#" },
+            //  { name: "Jackets", href: "#" },
+            //  { name: "Browse All", href: "#" },
           ],
         },
         {
@@ -130,7 +126,6 @@ const navigation = {
             { name: "For Men", href: "#" },
             { name: "For Women", href: "#" },
             { name: "For Kids", href: "#" },
-           
           ],
         },
       ],
@@ -192,8 +187,8 @@ export default function Header() {
                   >
                     <span className="sr-only">Close menu</span>
 
-                    <FaSuitcaseRolling className="h-8 w-auto inline fill-[#313178] "/> 
-                  <FaSpeakerDeck  className="h-8 w-auto inline fill-[#313178] "/> 
+                    <FaSuitcaseRolling className="h-8 w-auto inline fill-[#313178] " />
+                    <FaSpeakerDeck className="h-8 w-auto inline fill-[#313178] " />
                   </button>
                 </div>
 
@@ -297,7 +292,6 @@ export default function Header() {
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4 space-y-6">
-
                   {user ? (
                     <div className="flow-root">
                       <Link
@@ -330,10 +324,7 @@ export default function Header() {
                 </div>
 
                 <div className="border-t border-gray-200 py-6 px-4">
-                  <a
-                    href=""
-                    className="-m-2 p-2 flex items-center"
-                  >
+                  <a href="#" className="-m-2 p-2 flex items-center">
                     <img
                       src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Flag_of_Morocco.svg"
                       alt=""
@@ -369,15 +360,14 @@ export default function Header() {
               >
                 <span className="sr-only">Open menu</span>
                 <MenuIcon className="h-6 w-6" aria-hidden="true" />
-                  
               </button>
 
               {/* Logo */}
               <div className="ml-4 flex lg:ml-0">
                 <Link to="/">
                   <span className="sr-only">SCS</span>
-                  <FaSuitcaseRolling className="h-8 w-auto inline fill-[#313178] "/> 
-                  <FaSpeakerDeck  className="h-8 w-auto inline fill-[#313178] "/> 
+                  <FaSuitcaseRolling className="h-8 w-auto inline fill-[#313178] " />
+                  <FaSpeakerDeck className="h-8 w-auto inline fill-[#313178] " />
                 </Link>
               </div>
 
@@ -537,7 +527,7 @@ export default function Header() {
 
                 <div className="hidden lg:ml-8 lg:flex">
                   <a
-                    href="*"
+                    href="#"
                     className="text-gray-700 hover:text-gray-800 flex items-center"
                   >
                     <img
