@@ -32,6 +32,7 @@ export default function ProductDetails() {
       try {
         const response = await httpGetProduct(params.id);
         setProduct(response);
+        console.log(response);
         setSelectedColor(response.colors[0]);
       } catch (error) {
         navigate("/404");
@@ -88,48 +89,32 @@ export default function ProductDetails() {
           <div className="mt-6 max-w-2xl mx-auto sm:px-6 lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-3 lg:gap-x-8">
             <div className="hidden aspect-w-3 aspect-h-4 rounded-lg overflow-hidden lg:block">
               <img
-                src={
-                  product?.images[0]
-                    ? product.images[0]?.path
-                    : "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                }
+                src={product?.images[0]?.path}
                 alt="alt"
-                className="w-full h-full object-center object-cover"
+                className="w-full h-auto object-center object-cover"
               />
             </div>
             <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
               <div className="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
                 <img
-                  src={
-                    product?.images[0]
-                      ? product.images[0]?.path
-                      : "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                  }
+                  src={product?.images[1]?.path}
                   alt="alt"
-                  className="w-full h-full object-center object-cover"
+                  className="w-full h-auto object-center object-cover"
                 />
               </div>
               <div className="aspect-w-3 aspect-h-2 rounded-lg overflow-hidden">
                 <img
-                  src={
-                    product?.images[0]
-                      ? product.images[0]?.path
-                      : "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                  }
+                  src={product?.images[2]?.path}
                   alt="alt"
-                  className="w-full h-full object-center object-cover"
+                  className="w-full h-auto object-center object-cover"
                 />
               </div>
             </div>
             <div className="aspect-w-4 aspect-h-5 sm:rounded-lg sm:overflow-hidden lg:aspect-w-3 lg:aspect-h-4">
               <img
-                src={
-                  product?.images[0]
-                    ? product.images[0]?.path
-                    : "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg"
-                }
+                src={product?.images[3]?.path}
                 alt="alt"
-                className="w-full h-full object-center object-cover"
+                className="w-full h-auto object-center object-cover bg-cover"
               />
             </div>
           </div>
@@ -203,7 +188,6 @@ export default function ProductDetails() {
                     </RadioGroup.Label>
                     <div className="flex items-center space-x-3">
                       {product?.colors.map((color) => {
-                        console.log(color);
                         return (
                           <RadioGroup.Option
                             key={color.name}
@@ -285,7 +269,7 @@ export default function ProductDetails() {
                   <ul className="pl-4 list-disc text-sm space-y-2">
                     {/* TODO: Add highlights */}
                     {product?.features.map((feature) => (
-                      <li key={feature} className="text-gray-400">
+                      <li key={feature?.name} className="text-gray-400">
                         <span className="text-gray-600">{feature.name}</span>
                       </li>
                     ))}

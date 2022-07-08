@@ -21,6 +21,7 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
+    @Lob
     private String description;
     private String category;
     private Double avg = 0.0;

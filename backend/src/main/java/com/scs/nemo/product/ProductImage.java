@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "images")
@@ -16,10 +13,13 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Getter
 @Setter
-public class ProductImage
-{
+public class ProductImage {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    @Lob
     private String path;
+
+
 
 }

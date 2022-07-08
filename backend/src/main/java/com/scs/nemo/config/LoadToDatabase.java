@@ -1,6 +1,5 @@
 package com.scs.nemo.config;
 
-import com.scs.nemo.product.Product;
 import com.scs.nemo.product.ProductRepository;
 import com.scs.nemo.user.IUserService;
 import com.scs.nemo.user.User;
@@ -25,13 +24,13 @@ public class LoadToDatabase {
             "https://avatars.dicebear.com/api/male/jonas56.svg"
     );
 
+
     @Bean
     @Profile("!prod")
     CommandLineRunner initDatabase(IUserService userService, ModelMapper modelMapper, ProductRepository productRepository) {
         return args -> {
             log.info("Preloading " + userService.register(modelMapper.map(userRequestDto, User.class)));
-           log.info("Preloading " + productRepository.save(new Product("Tesla", "Model S", "category", 100.0)));
-            log.info("Preloading " + productRepository.save(new Product("Jonas", "Strict", "category", 100.0)));
+            productRepository.saveAll(ProductsData.getProducts());
         };
     }
 }

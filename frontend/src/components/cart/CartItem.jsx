@@ -8,6 +8,8 @@ export default function CartItem({ product }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  console.log(product);
+
   const handleRemoveItem = () => {
     const cartItem = { ...product };
     dispatch(removeFromCart({ cartItem }));
@@ -18,7 +20,7 @@ export default function CartItem({ product }) {
     <li key={product.id} className="flex py-6">
       <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
         <img
-          src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+          src={product?.image}
           alt="alt"
           className="h-full w-full object-cover object-center"
         />

@@ -15,7 +15,7 @@ export default function Feature() {
             unlock it, weigh it, track its location, be notified if you are
             leaving it behind and find out more about your travel habits. You
             can also charge your phone 6 times over with a built-in battery.
-            Isn’t that awesome?
+            Isn't that awesome?
           </p>
 
           <dl className="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
