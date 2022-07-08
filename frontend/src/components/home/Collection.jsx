@@ -1,33 +1,5 @@
 import { Link } from "react-router-dom";
-
-const callouts = [
-  {
-    name: "Style and technology",
-    description: "Smart Suitcases",
-    imageSrc:
-      "https://www.linkpicture.com/q/suitcase1.jpg",
-    imageAlt:
-      "Desk with leather desk pad, walnut desk organizer, wireless keyboard and mouse, and porcelain mug.",
-    href: "/products",
-  },
-  {
-    name: "Adventures",
-    description: "Smart Bags",
-    imageSrc:
-      "https://www.linkpicture.com/q/bag1_1.jpg",
-    imageAlt:
-      "Wood table with porcelain mug, leather journal, brass pen, leather key ring, and a houseplant.",
-    href: "/products",
-  },
-  {
-    name: "Travel",
-    description: "Smart Backpacks",
-    imageSrc:
-    "https://www.linkpicture.com/q/backpack_1.jpg",
-    imageAlt: "Collection of four insulated travel bottles on wooden shelf.",
-    href: "/products",
-  },
-];
+import { callouts } from "../../api/data";
 
 export default function Collection() {
   return (

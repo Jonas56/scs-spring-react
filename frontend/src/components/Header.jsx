@@ -1,141 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Fragment, useState } from "react";
+import { navigation } from "../api/data";
 import { FaSuitcaseRolling, FaSpeakerDeck } from "react-icons/fa";
-
 import { Dialog, Popover, Tab, Transition } from "@headlessui/react";
 import ShoppingCart from "./cart/ShoppingCart";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import {
   MenuIcon,
   SearchIcon,
   ShoppingBagIcon,
   UserIcon,
 } from "@heroicons/react/outline";
-
-const navigation = {
-  categories: [
-    {
-      id: "Men_bags",
-      name: "Men",
-      featured: [
-        {
-          name: "Suitcase",
-          href: "#",
-          imageSrc: "https://www.linkpicture.com/q/men1.jpg",
-          imageAlt:
-            "Models sitting back to back, wearing Basic Tee in black and bone.",
-        },
-        {
-          name: "Bag",
-          href: "#",
-          imageSrc: "https://i.ibb.co/0CXMDT2/men2.jpg",
-          imageAlt:
-            "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
-        },
-      ],
-      sections: [
-        {
-          id: "luggage-categories",
-          name: "Luggage Categories",
-          items: [
-            { name: "New Arrivals", href: "#" },
-            { name: "Sales", href: "#" },
-            { name: "Suitcases", href: "#" },
-            { name: "Bags", href: "#" },
-            { name: "Backpacks", href: "#" },
-
-            //  { name: "T-Shirts", href: "#" },
-            //  { name: "Jackets", href: "#" },
-            //  { name: "Browse All", href: "#" },
-          ],
-        },
-        {
-          id: "feautres",
-          name: "Feautures",
-          items: [
-            { name: "Smart Lock & unLock", href: "#" },
-            { name: "Digital Scale", href: "#" },
-            { name: "Location Tracking", href: "#" },
-            { name: "Distance Alerts", href: "#" },
-            { name: "Battery Charger", href: "#" },
-          ],
-        },
-        {
-          id: "styles",
-          name: "Styles",
-          items: [
-            { name: "For Men", href: "#" },
-            { name: "For Women", href: "#" },
-            { name: "For Kids", href: "#" },
-          ],
-        },
-      ],
-    },
-    {
-      id: "Women_bags",
-      name: "Women",
-      featured: [
-        {
-          name: "Suitcase",
-          href: "#",
-          imageSrc: " https://i.ibb.co/tD4Qk3C/women1.jpg",
-          imageAlt:
-            "Models sitting back to back, wearing Basic Tee in black and bone.",
-        },
-        {
-          name: "Backpack",
-          href: "#",
-          imageSrc:
-            "https://i.ibb.co/T2Ndf4d/charlesdeluvio-Ghrv69-I9m-Pw-unsplash.jpg",
-          imageAlt:
-            "Close up of Basic Tee fall bundle with off-white, ochre, olive, and black tees.",
-        },
-      ],
-      sections: [
-        {
-          id: "luggage-categories",
-          name: "Luggage Categories",
-          items: [
-            { name: "New Arrivals", href: "#" },
-            { name: "Sales", href: "#" },
-            { name: "Suitcases", href: "#" },
-            { name: "Bags", href: "#" },
-            { name: "Backpacks", href: "#" },
-
-            //  { name: "T-Shirts", href: "#" },
-            //  { name: "Jackets", href: "#" },
-            //  { name: "Browse All", href: "#" },
-          ],
-        },
-        {
-          id: "feautres",
-          name: "Feautures",
-          items: [
-            { name: "Smart Lock & unLock", href: "#" },
-            { name: "Digital Scale", href: "#" },
-            { name: "Location Tracking", href: "#" },
-            { name: "Distance Alerts", href: "#" },
-            { name: "Battery Charger", href: "#" },
-          ],
-        },
-        {
-          id: "styles",
-          name: "Styles",
-          items: [
-            { name: "For Men", href: "#" },
-            { name: "For Women", href: "#" },
-            { name: "For Kids", href: "#" },
-          ],
-        },
-      ],
-    },
-  ],
-  pages: [
-    { name: "Company", href: "#" },
-    { name: "Stores", href: "#" },
-  ],
-};
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -146,9 +23,19 @@ export default function Header() {
   const [cartOpen, setCartOpen] = useState(false);
   const { user } = useSelector((state) => state.auth);
   const cartSelector = useSelector((state) => state.cart);
+  const [name, setName] = useState(null);
+  const navigate = useNavigate();
 
   const handleOpen = () => {
     setCartOpen(!cartOpen);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (name !== "") {
+      navigate("/products?name=" + name);
+      document.getElementById("search").value = "";
+    }
   };
 
   return (
@@ -232,8 +119,8 @@ export default function Header() {
                                   className="object-center object-cover"
                                 />
                               </div>
-                              <a
-                                href={item.href}
+                              <Link
+                                to={item.href}
                                 className="mt-6 block font-medium text-gray-900"
                               >
                                 <span
@@ -241,7 +128,7 @@ export default function Header() {
                                   aria-hidden="true"
                                 />
                                 {item.name}
-                              </a>
+                              </Link>
                               <p aria-hidden="true" className="mt-1">
                                 Shop now
                               </p>
@@ -262,12 +149,12 @@ export default function Header() {
                             >
                               {section.items.map((item) => (
                                 <li key={item.name} className="flow-root">
-                                  <a
-                                    href={item.href}
+                                  <Link
+                                    to={item.href}
                                     className="-m-2 p-2 block text-gray-500"
                                   >
                                     {item.name}
-                                  </a>
+                                  </Link>
                                 </li>
                               ))}
                             </ul>
@@ -281,12 +168,12 @@ export default function Header() {
                 <div className="border-t border-gray-200 py-6 px-4 space-y-6">
                   {navigation.pages.map((page) => (
                     <div key={page.name} className="flow-root">
-                      <a
-                        href={page.href}
+                      <Link
+                        to={page.href}
                         className="-m-2 p-2 block font-medium text-gray-900"
                       >
                         {page.name}
-                      </a>
+                      </Link>
                     </div>
                   ))}
                 </div>
@@ -423,8 +310,8 @@ export default function Header() {
                                               className="object-center object-cover"
                                             />
                                           </div>
-                                          <a
-                                            href={item.href}
+                                          <Link
+                                            to={item.href}
                                             className="mt-6 block font-medium text-gray-900"
                                           >
                                             <span
@@ -432,7 +319,7 @@ export default function Header() {
                                               aria-hidden="true"
                                             />
                                             {item.name}
-                                          </a>
+                                          </Link>
                                           <p
                                             aria-hidden="true"
                                             className="mt-1"
@@ -460,12 +347,12 @@ export default function Header() {
                                                 key={item.name}
                                                 className="flex"
                                               >
-                                                <a
-                                                  href={item.href}
+                                                <Link
+                                                  to={item.href}
                                                   className="hover:text-gray-800"
                                                 >
                                                   {item.name}
-                                                </a>
+                                                </Link>
                                               </li>
                                             ))}
                                           </ul>
@@ -483,13 +370,13 @@ export default function Header() {
                   ))}
 
                   {navigation.pages.map((page) => (
-                    <a
+                    <Link
                       key={page.name}
-                      href={page.href}
+                      to={page.href}
                       className="flex items-center text-sm font-medium text-gray-700 hover:text-gray-800"
                     >
                       {page.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </Popover.Group>
@@ -541,20 +428,27 @@ export default function Header() {
                 </div>
 
                 {/* Search */}
-                <div className="flex lg:ml-6">
-                  <input
-                    type="text"
-                    className="form-input w-full lg:w-auto flex-1 rounded border-gray-500"
-                    placeholder="Search"
-                  />
-                  <a
-                    href="http://localhost:3000/#"
-                    className="p-2 text-gray-400 hover:text-gray-500"
-                  >
-                    <span className="sr-only">Search</span>
-                    <SearchIcon className="w-6 h-6" aria-hidden="true" />
-                  </a>
-                </div>
+                <form onSubmit={handleSubmit}>
+                  <div className="flex lg:ml-6">
+                    <input
+                      id="search"
+                      type="text"
+                      name="name"
+                      className="form-input w-full lg:w-auto flex-1 rounded border-gray-500"
+                      placeholder="Search"
+                      onChange={(event) => {
+                        setName(event.target.value);
+                      }}
+                    />
+                    <button
+                      type="submit"
+                      className="p-2 text-gray-400 hover:text-gray-500"
+                    >
+                      <span className="sr-only">Search</span>
+                      <SearchIcon className="w-6 h-6" aria-hidden="true" />
+                    </button>
+                  </div>
+                </form>
 
                 {/* Cart */}
                 {cartOpen && (
