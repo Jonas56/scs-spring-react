@@ -1,6 +1,10 @@
 import React, { Fragment, useState } from "react";
 import { Dialog, Disclosure, Menu, Transition } from "@headlessui/react";
 import { XIcon } from "@heroicons/react/outline";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import ListProducts from "../components/list-products/ListProducts";
+import { useSearchParams } from "react-router-dom";
 import {
   ChevronDownIcon,
   FilterIcon,
@@ -8,60 +12,8 @@ import {
   PlusSmIcon,
   ViewGridIcon,
 } from "@heroicons/react/solid";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
-import ListProducts from "../components/list-products/ListProducts";
 
-const sortOptions = [
-  { name: "Most Popular", href: "#", current: true },
-  { name: "Best Rating", href: "#", current: false },
-  { name: "Newest", href: "#", current: false },
-  { name: "Price: Low to High", href: "#", current: false },
-  { name: "Price: High to Low", href: "#", current: false },
-];
-const subCategories = [
-  { name: "Suitcases", href: "#" },
-  { name: "Bags", href: "#" },
-  { name: "Backpacks", href: "#" },
- // { name: "Hip Bags", href: "#" },
- // { name: "Laptop Sleeves", href: "#" },
-];
-const filters = [
- /* {
-    id: "color",
-    name: "Color",
-    options: [
-      { value: "white", label: "White", checked: false },
-      { value: "beige", label: "Beige", checked: false },
-      { value: "blue", label: "Blue", checked: true },
-      { value: "brown", label: "Brown", checked: false },
-      { value: "green", label: "Green", checked: false },
-      { value: "purple", label: "Purple", checked: false },
-    ],
-  },*/
-  {
-    id: "categories",
-    name: "Categories",
-    options: [
-      { value: "new-arrivals", label: "New Arrivals", checked: true },
-      { value: "sales", label: "Sales", checked: false },
-      { value: "suitcases", label: "Suitcases", checked: false },
-      { value: "bags", label: "Bags", checked: false },
-      { value: "backbags", label: "Backbags", checked: false },
-    ],
-  },
-  {
-    id: "features",
-    name: "Features",
-    options: [
-      { value: "Smart_Lock&unLock", label: "Smart Lock & unLock", checked: false },
-      { value: "digital_scale", label: "Digital Scale", checked: false },
-      { value: "location_tracking", label: "Location Tracking", checked: false },
-      { value: "distance_alerts", label: "Distance Alerts", checked: false },
-      { value: "battery_charger", label: "Battery Charger", checked: false },
-    ],
-  },
-];
+import { sortOptions, subCategories, filters } from "../api/data";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -69,6 +21,7 @@ function classNames(...classes) {
 
 export default function CategoryFilter() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [query] = useSearchParams();
 
   return (
     <>
@@ -199,7 +152,9 @@ export default function CategoryFilter() {
           <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative z-10 flex items-baseline justify-between pt-24 pb-6 border-b border-gray-200">
               <h1 className="text-4xl font-extrabold tracking-tight text-gray-900">
-                Our Products
+                {query.get("name")
+                  ? `Results for  "${query.get("name")}"`
+                  : "Our Products"}
               </h1>
 
               <div className="flex items-center">

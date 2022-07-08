@@ -6,6 +6,11 @@ async function httpGetAllProducts() {
   return response.data;
 }
 
+async function httpGetAllProductsByName(name) {
+  const response = await axios.get(BASE_URL + "/products?name=" + name);
+  return response.data;
+}
+
 async function httpGetProduct(productId) {
   const response = await axios.get(BASE_URL + "/products/" + productId);
   return response.data;
@@ -31,4 +36,10 @@ async function httpAddReview(productId, review, token) {
   return response.data;
 }
 
-export { httpAddProduct, httpGetAllProducts, httpAddReview, httpGetProduct };
+export {
+  httpAddProduct,
+  httpGetAllProducts,
+  httpAddReview,
+  httpGetProduct,
+  httpGetAllProductsByName,
+};
