@@ -2,7 +2,7 @@
 
 ## Description
 
-An ecommerce app that allows users to buy smart conected suitcase :luggage:.
+An ecommerce app that allows users to buy smart conected suitcases :luggage:.
 
 ## Technologies Used :man_technologist:
 
@@ -48,7 +48,7 @@ $ npm run start
 
 ```shell
 $ cd backend
-$ mvn clean install
+$ mvn clean package
 $ mvn spring-boot:run
 ```
 
