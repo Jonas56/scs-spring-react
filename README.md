@@ -33,9 +33,7 @@ $ git clone https://github.com/Jonas56/scs-spring-react.git
 ### Docker
 
 ```shell
-$ cd backend
-$ mvn clean package
-$ docker-compose up
+$ docker-compose up -d
 ```
 
 Visit the app at [http://localhost:8080](http://localhost:8080)
