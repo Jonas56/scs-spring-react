@@ -28,7 +28,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "eslint": "eslint ."
+    "eslint": "eslint . --fix",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "eslintConfig": {
     "extends": [
@@ -51,6 +53,8 @@
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "autoprefixer": "^10.4.7",
+    "cypress": "^10.3.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-jest": "^26.5.3",
     "postcss": "^8.4.14",
     "tailwindcss": "^3.1.2"

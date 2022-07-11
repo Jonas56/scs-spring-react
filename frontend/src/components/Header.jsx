@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Fragment, useState } from "react";
 import { navigation } from "../api/data";
 import { FaSuitcaseRolling, FaSpeakerDeck } from "react-icons/fa";

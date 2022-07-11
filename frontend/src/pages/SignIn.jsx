@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 import { LockClosedIcon } from "@heroicons/react/solid";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../redux/slices/authSlice";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import Spinner from "../components/utils/Spinner";
 import Alert from "../components/utils/Alert";
 
@@ -57,24 +57,22 @@ export default function SignIn() {
         {spinner && <Spinner />}
         <div className="max-w-md w-full space-y-8">
           <div>
-        
-                <a href="http://localhost:3000/">
-                  
-                  <FaSuitcaseRolling className="mx-auto h-10 w-auto  fill-[#313178] "/> 
-                  <FaSpeakerDeck  className="mx-auto h-10 w-auto  fill-[#313178] "/>          
-             </a>
-            
+            <Link to="/">
+              <FaSuitcaseRolling className="mx-auto h-10 w-auto  fill-[#313178] " />
+              <FaSpeakerDeck className="mx-auto h-10 w-auto  fill-[#313178] " />
+            </Link>
+
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
               Sign in to your account
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
               Or{" "}
-              <a
-                href="/signup"
+              <Link
+                to="/signup"
                 className="font-medium text-indigo-600 hover:text-indigo-500"
               >
                 create a new one
-              </a>
+              </Link>
             </p>
           </div>
           <form
@@ -134,7 +132,7 @@ export default function SignIn() {
 
               <div className="text-sm">
                 <a
-                  href="https://tailwindui.com/components/forms"
+                  href="#"
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
                   Forgot your password?
@@ -144,6 +142,7 @@ export default function SignIn() {
 
             <div>
               <button
+                id="login-button"
                 type="submit"
                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >

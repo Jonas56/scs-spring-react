@@ -6,14 +6,12 @@ const Footer = () => {
       <div className="md:flex md:justify-between my-3">
         <div className="mb-6 md:mb-0">
           <a href="https://github.com/jonas56" className="flex items-center">
-          <FaSuitcaseRolling className="h-8 w-auto inline fill-[#313178] "/> 
-          <FaSpeakerDeck  className="h-8 w-auto inline fill-[#313178] "/>      
-            <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-700">
-            
-            </span>
+            <FaSuitcaseRolling className="h-8 w-auto inline fill-[#313178] " />
+            <FaSpeakerDeck className="h-8 w-auto inline fill-[#313178] " />
+            <span className="self-center text-2xl font-semibold whitespace-nowrap text-gray-700"></span>
           </a>
           <p className="text-gray-400 my-4 mx-4 w-80">
-          More than a suitcase, your personal travel assistant.
+            More than a suitcase, your personal travel assistant.
           </p>
         </div>
         <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
@@ -23,26 +21,17 @@ const Footer = () => {
             </h2>
             <ul className="text-gray-400 ">
               <li className="mb-4">
-                <a
-                  href="http://localhost:3000/"
-                  className="hover:underline"
-                >
+                <a href="http://localhost:3000/" className="hover:underline">
                   Home
                 </a>
               </li>
               <li className="mb-4">
-                <a
-                  href="products"
-                  className="hover:underline"
-                >
+                <a href="products" className="hover:underline">
                   Products
                 </a>
               </li>
               <li>
-                <a
-                  href="*"
-                  className="hover:underline"
-                >
+                <a href="*" className="hover:underline">
                   About
                 </a>
               </li>
@@ -50,31 +39,22 @@ const Footer = () => {
           </div>
           <div>
             <h2 className="mb-6 text-sm font-semibold text-gray-700 uppercase">
-             Assistance
+              Assistance
             </h2>
             <ul className="text-gray-400 ">
               <li className="mb-4">
-                <a
-                  href="*"
-                  className="hover:underline"
-                >
+                <a href="*" className="hover:underline">
                   Aide
                 </a>
               </li>
               <li className="mb-4">
-                <a
-                  href="*"
-                  className="hover:underline"
-                >
+                <a href="*" className="hover:underline">
                   Contactez-nous
                 </a>
               </li>
               <li>
-                <a
-                  href="*"
-                  className="hover:underline"
-                >
-                 Livraison
+                <a href="*" className="hover:underline">
+                  Livraison
                 </a>
               </li>
             </ul>

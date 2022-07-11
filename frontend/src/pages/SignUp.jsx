@@ -67,11 +67,10 @@ export default function SignUp() {
         {spinner && <Spinner />}
         <div className="max-w-md w-full space-y-8">
           <div>
-          <a href="http://localhost:3000/">
-                  
-                  <FaSuitcaseRolling className="mx-auto h-10 w-auto  fill-[#313178] "/> 
-                  <FaSpeakerDeck  className="mx-auto h-10 w-auto  fill-[#313178] "/>          
-             </a>
+            <Link to="/">
+              <FaSuitcaseRolling className="mx-auto h-10 w-auto  fill-[#313178] " />
+              <FaSpeakerDeck className="mx-auto h-10 w-auto  fill-[#313178] " />
+            </Link>
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
               Sign up to your new account
             </h2>

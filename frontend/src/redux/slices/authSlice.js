@@ -16,7 +16,6 @@ export const register = createAsyncThunk(
   "auth/register",
   async (credentials, thunkAPI) => {
     try {
-      console.log(credentials);
       return await httpRegisterUser(credentials);
     } catch (error) {
       const message =
@@ -67,7 +66,7 @@ export const authSlice = createSlice({
       .addCase(register.pending, (state) => {
         state.status = "loading";
       })
-      .addCase(register.fulfilled, (state, action) => {
+      .addCase(register.fulfilled, (state) => {
         state.status = "succeeded";
       })
       .addCase(register.rejected, (state, action) => {
