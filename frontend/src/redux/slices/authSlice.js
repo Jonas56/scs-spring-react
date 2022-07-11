@@ -88,6 +88,7 @@ export const authSlice = createSlice({
       })
       // logout
       .addCase(logout.fulfilled, (state) => {
+        state.status = "loggedOut";
         state.user = null;
       });
   },
