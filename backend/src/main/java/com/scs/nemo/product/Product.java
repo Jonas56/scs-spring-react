@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -29,13 +31,14 @@ public class Product {
 
     @OneToMany
             (
+                    targetEntity = ProductImage.class,
                     cascade = CascadeType.ALL,
                     orphanRemoval = true,
                     fetch = FetchType.EAGER
             )
 
     @JoinColumn(name = "product_id")
-    private Set<ProductImage> images;
+    private List<ProductImage> images;
 
 
     @OneToMany

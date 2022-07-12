@@ -19,10 +19,18 @@
     ],
     "price": 350.99,
     "features": [
-      { "name": "Rechargeable" },
-      { "name": "Polycarbonate" },
-      { "name": "rigid" },
-      { "name": "Quiet" }
+      {
+        "name": "Rechargeable"
+      },
+      {
+        "name": "Polycarbonate"
+      },
+      {
+        "name": "rigid"
+      },
+      {
+        "name": "Quiet"
+      }
     ],
     "colors": [
       {
@@ -37,23 +45,22 @@
       }
     ]
   },
-
   {
     "name": "The Frame Carry-On",
     "description": "An all aluminum carry-on with hand-stitched leather handles, whisper-quiet wheels, a removable power bank, and an anti-microbial interior lining. An aluminum frame with two TSA-approved clasp locks replace the zipper for unmatched security. Charge your phone to half-way in under 30 minutes with our blazing-fast removable charger.",
     "category": "suitcases",
     "images": [
       {
-        "path": "/images/products/2/1.png"
+        "path": "/images/products/2/1.jpg"
       },
       {
-        "path": "/images/products/2/3.png"
+        "path": "/images/products/2/3.jpg"
       },
       {
-        "path": "/images/products/2/4.png"
+        "path": "/images/products/2/4.jpg"
       },
       {
-        "path": "/images/products/2/4.png"
+        "path": "/images/products/2/2.jpg"
       }
     ],
     "price": 450.99,
@@ -89,7 +96,6 @@
       }
     ]
   },
-
   {
     "name": "G-RO Carry-on Luggage",
     "description": "GravityRoll wheels are guaranteed for life and let you roll easily over steps, curbs, snow and more - as well as increase the amount of packing space inside the bag. Keep track of your luggage with the innovative Tile Slim Bluetooth luggage locator",
@@ -136,23 +142,22 @@
       }
     ]
   },
-
   {
     "name": "Grand Carry-on Black",
     "description": "Find your Zen while Tag Smart technology finds your suitcase. Samsara's newest 23 Carry-on is equipped with Tag Smart technology that tracks your suitcase with the Find My app on your iPhone.",
     "category": "suitcases",
     "images": [
       {
-        "path": "/images/products/4/1.png"
+        "path": "/images/products/4/1.jpg"
       },
       {
-        "path": "/images/products/4/2.png"
+        "path": "/images/products/4/2.jpg"
       },
       {
-        "path": "/images/products/4/3.png"
+        "path": "/images/products/4/3.jpg"
       },
       {
-        "path": "/images/products/4/4.png"
+        "path": "/images/products/4/4.jpg"
       }
     ],
     "price": 295.0,
@@ -175,7 +180,6 @@
       }
     ]
   },
-
   {
     "name": "Voltaic Solar Converter Daypacks",
     "description": "INCLUDES A BATTERY PACK (V25 POWER BANK) to charge your device quickly and safely. Store energy and power to charge your devices even when it is cloudy and the sun is not out. INCLUDES A 2-YEAR WARRANTY. Our solar panels are designed to last. Built using rugged fabric and strong solar cells that can withstand the rigors of everyday use (2 year on solar panel, 1 year on battery pack). HIGH PERFORMANCE SOLAR PANELS made from industry-leading monocrystalline solar cells charges most smartphones completely in 3.5 hours in direct sunlight",
@@ -217,7 +221,6 @@
       }
     ]
   },
-
   {
     "name": "Monument Carry-On Spinner",
     "description": "Whether you travel extensively for personal vacations, the occasional work trip or you're in the market for a new bag, the Monument Carry-On should be your new go-to. It's lightweight, has spinner wheels, comes with a TSA lock and offers interior pockets in the main packing space-not all hardside carry-ons can say the same. The outer case features a (wait-for-it) monumental texture that hides scratches and dings so that it stays looking \"new\" trip after trip.",
@@ -261,23 +264,22 @@
       }
     ]
   },
-
   {
     "name": "Freeform Carry-On Spinner",
     "description": "Extremely lightweight and durable, Freeform has been created to bring the strength and maneuverability our customers have come to expect, combined with a truly unique design. With a more streamlined panel, an increased packing capacity, and thoughtfully integrated components. Our newest lightweight offers a very spacious and effortless ride.",
     "category": "Luggage",
     "images": [
       {
-        "path": "/images/products/7/1.png"
+        "path": "/images/products/7/1.jpg"
       },
       {
-        "path": "/images/products/7/2.png"
+        "path": "/images/products/7/2.jpg"
       },
       {
-        "path": "/images/products/7/3.png"
+        "path": "/images/products/7/3.jpg"
       },
       {
-        "path": "/images/products/7/4.png"
+        "path": "/images/products/7/4.jpg"
       }
     ],
     "price": 149.99,
@@ -308,23 +310,22 @@
       }
     ]
   },
-
   {
     "name": "Maxsum Eco Carry-On Spinner",
     "description": "Made in Europe, the Maxsum ECO collection is crafted with recycled post-consumer waste: using recycled yogurt cups for the shells and recycled PET bottles for the interior lining. These suitcases are the fruit of our commitment to sustainability, without compromising on quality and comfort.",
     "category": "bags",
     "images": [
       {
-        "path": "/images/products/8/1.png"
+        "path": "/images/products/8/1.jpg"
       },
       {
-        "path": "/images/products/8/2.png"
+        "path": "/images/products/8/2.jpg"
       },
       {
-        "path": "/images/products/8/3.png"
+        "path": "/images/products/8/3.jpg"
       },
       {
-        "path": "/images/products/8/4.png"
+        "path": "/images/products/8/4.jpg"
       }
     ],
     "price": 187.5,
@@ -350,23 +351,22 @@
       }
     ]
   },
-
   {
     "name": "Just Right Carry-On Spinner",
     "description": "The only carry on you'll ever need, just right for any journey! A Hardside Polycarbonate case with a built-in front compartment which features a padded, tech storage panel to hold a laptop up to 15”, a tablet, a removable 3-1-1 friendly pouch, and multiple zip close storage pockets to hold smaller essentials. If you thought it couldn’t get better, we included a USB Charging Port, Expansion, a 2-Sided TSA lock, and removable, reusable packing cubes; everything but the kitchen sink!",
     "category": "bags",
     "images": [
       {
-        "path": "/images/products/8/1.png"
+        "path": "/images/products/8/1.jpg"
       },
       {
-        "path": "/images/products/8/2.png"
+        "path": "/images/products/8/2.jpg"
       },
       {
-        "path": "/images/products/8/3.png"
+        "path": "/images/products/8/3.jpg"
       },
       {
-        "path": "/images/products/8/4.png"
+        "path": "/images/products/8/4.jpg"
       }
     ],
     "price": 187.49,
@@ -392,26 +392,25 @@
       }
     ]
   },
-
   {
     "name": "Samsonite & Sarah Jessica Parker",
     "description": "A carry-on to carry you away. More than a pretty face, this 4-wheel wonder features expansion, dual spinner wheels, a right height trolley handle, top and side carry handles, a built in TSA lock, and signature Scintillate ID Tag, and that’s just the outside! Do we have your attention yet?",
     "category": "bags",
     "images": [
       {
-        "path": "/images/products/10/1.png"
+        "path": "/images/products/10/1.jpg"
       },
       {
-        "path": "/images/products/10/2.png"
+        "path": "/images/products/10/2.jpg"
       },
       {
-        "path": "/images/products/10/3.png"
+        "path": "/images/products/10/3.jpg"
       },
       {
-        "path": "/images/products/10/3.png"
+        "path": "/images/products/10/3.jpg"
       }
     ],
-    "price": 0.0,
+    "price": 290.0,
     "features": [
       {
         "name": "100% Polycarbonate (PC) shell features a unique textured design and metallic film"
@@ -434,23 +433,22 @@
       }
     ]
   },
-
   {
     "name": "The Bigger Carry-On",
     "description": "Our Bigger Carry-On is built to last, with a durable polycarbonate hard shell that can withstand any journey. Perfect for longer trips, it is sized to fit in the overhead bin of most major airlines, and still lightweight to pop easily onto a train or into a car. Thoughtful details like 360° spinner wheels ensure a smooth ride, and its interior compression system and water-resistant laundry bag make it easy to pack all of your essentials.",
     "category": "backpacks",
     "images": [
       {
-        "path": "/images/products/11/1.png"
+        "path": "/images/products/11/1.jpg"
       },
       {
-        "path": "/images/products/11/2.png"
+        "path": "/images/products/11/2.jpg"
       },
       {
-        "path": "/images/products/11/3.png"
+        "path": "/images/products/11/3.jpg"
       },
       {
-        "path": "/images/products/11/4.png"
+        "path": "/images/products/11/4.jpg"
       }
     ],
     "price": 295.0,
@@ -474,7 +472,6 @@
         "className": "bg-black",
         "selectedClass": "ring-gray-100"
       },
-
       {
         "name": "NAVY",
         "className": "bg-cyan-900",
@@ -487,23 +484,22 @@
       }
     ]
   },
-
   {
     "name": "The Carry-On Flex",
     "description": "In case of layovers, extended stays, or bringing home souvenirs, this Carry-On flexes to make room for more. Unzip the flex feature to create an additional 2.25\" of space to fit in any last-minute items. When not fully expanded, this suitcase is the perfect size to carry-on and becomes checked luggage when fully flexed.",
     "category": "Luggage",
     "images": [
       {
-        "path": "/images/products/12/1.png"
+        "path": "/images/products/12/1.jpg"
       },
       {
-        "path": "/images/products/12/2.png"
+        "path": "/images/products/12/2.jpg"
       },
       {
-        "path": "/images/products/12/3.png"
+        "path": "/images/products/12/3.jpg"
       },
       {
-        "path": "/images/products/12/4.png"
+        "path": "/images/products/12/4.jpg"
       }
     ],
     "price": 325.0,
@@ -527,7 +523,6 @@
         "className": "bg-black",
         "selectedClass": "ring-gray-100"
       },
-
       {
         "name": "NAVY",
         "className": "bg-cyan-900",

@@ -6,6 +6,8 @@ import com.scs.nemo.product.ProductImage;
 import com.scs.nemo.review.dto.ReviewResponseDto;
 import lombok.*;
 
+import javax.persistence.OrderBy;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -20,7 +22,7 @@ public class ProductDetailsResponseDto {
     private String category;
     private Double avg = 0.0;
     private Double price;
-    private Set<ProductImage> images;
+    private List<ImageDto> images;
     private Set<ReviewResponseDto> reviews;
     private Set<ProductFeature> features;
     private Set<ProductColors> colors;

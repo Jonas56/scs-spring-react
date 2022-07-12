@@ -23,7 +23,6 @@ public class ProductsData {
         Type listType = new TypeToken<List<Product>>() {
         }.getType();
         List<Product> products = gson.fromJson(result , listType);
-        System.out.println( "Products" +  products);
         return products;
     }
 }
