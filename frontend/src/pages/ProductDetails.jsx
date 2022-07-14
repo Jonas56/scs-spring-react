@@ -32,7 +32,6 @@ export default function ProductDetails() {
       try {
         const response = await httpGetProduct(params.id);
         setProduct(response);
-        console.log(response);
         setSelectedColor(response.colors[0]);
       } catch (error) {
         navigate("/404");

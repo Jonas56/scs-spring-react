@@ -61,13 +61,17 @@ public class ProductServiceImp implements IProductService {
 
     @Override
     public void addReview(HttpServletRequest request, Long id, Review review) {
-        String username = JwtUtil.extractUsernameFromRequest(request); // Get username from JWT
-        User user = userRepository.findByUsername(username).orElseThrow(); // Get user from database by username
-        review.setUser(user); // Set user to review
-        Product product = getProductById(id);
+        String username = JwtUtil.extractUsernameFromRequest(request);
+        User user = userRepository.findByUsername(username).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found")
+        );
+        Product product = productRepository.findById(id).orElseThrow(
+                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Product not found")
+        );
         Double avg = (product.getAvg() * product.getReviews().size() + review.getRating()) / (product.getReviews().size() + 1);
-        product.setAvg(avg); // Update average rating
-        product.addReview(review); // Add review to product
+        product.setAvg(avg);
+        review.setUser(user);
+        product.addReview(review);
         productRepository.save(product);
     }
 
