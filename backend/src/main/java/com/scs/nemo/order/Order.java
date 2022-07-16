@@ -1,5 +1,7 @@
 package com.scs.nemo.order;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.scs.nemo.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,6 +19,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Getter
 @Setter
+
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -35,6 +38,7 @@ public class Order {
     )
     @JoinColumn(name = "order_id", referencedColumnName = "id")
     private List<OrderDetails> orderDetails;
+
     @ManyToOne(
             targetEntity = User.class,
             fetch = FetchType.EAGER,

@@ -9,6 +9,7 @@ import SignIn from "../pages/SignIn";
 import OrderPlaced from "../pages/OrderPlaced";
 import Profile from "../pages/Profile";
 import Home from "../pages/Home";
+import OrderDetails from "../pages/OrderDetails";
 
 export default function AppRouter() {
   return (
@@ -27,6 +28,8 @@ export default function AppRouter() {
 
         <Route path="profile" element={<Profile />} />
 
+        <Route path="orderDetails/:id" element={<OrderDetails />} />
+        
         <Route path="success" element={<OrderPlaced />} />
 
         <Route path="*" element={<NotFound />} />

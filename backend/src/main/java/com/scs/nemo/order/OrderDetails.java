@@ -1,5 +1,7 @@
 package com.scs.nemo.order;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.scs.nemo.product.Product;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
