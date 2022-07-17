@@ -9,6 +9,14 @@ async function httpGetAllOrders(token) {
   return response.data;
 }
 
+async function httpGetOrderDetails(token,orderId) {
+  const config = {
+    headers: { Authorization: "Bearer " + token },
+  };
+  const response = await axios.get(BASE_URL + "/orders/details/"+orderId, config);
+  return response.data;
+}
+
 async function httpAddOrder(order, token) {
   const config = {
     headers: { Authorization: "Bearer " + token },
@@ -37,4 +45,4 @@ async function httpDeleteOrder(orderId, token) {
   return response.data;
 }
 
-export { httpAddOrder, httpGetAllOrders, httpUpdateOrder, httpDeleteOrder };
+export { httpAddOrder, httpGetAllOrders, httpUpdateOrder, httpDeleteOrder , httpGetOrderDetails};

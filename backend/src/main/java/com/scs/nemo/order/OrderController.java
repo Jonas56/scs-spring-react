@@ -1,6 +1,7 @@
 package com.scs.nemo.order;
 
 import com.scs.nemo.order.dto.OrderRequestDto;
+import com.scs.nemo.order.dto.OrderResponseDetailsDto;
 import com.scs.nemo.order.dto.OrderResponseDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -34,6 +35,10 @@ public class OrderController {
     @GetMapping("/{orderId}")
     public OrderResponseDto getOrder(@PathVariable Long orderId) {
         return modelMapper.map(orderService.getOrder(orderId), OrderResponseDto.class);
+    }
+    @GetMapping("/details/{orderId}")
+    public OrderResponseDetailsDto getOrderDetails(@PathVariable Long orderId) {
+        return modelMapper.map(orderService.getOrder(orderId), OrderResponseDetailsDto.class);
     }
 
     @PostMapping()

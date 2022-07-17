@@ -39,6 +39,15 @@ public class OrderServiceImp implements IOrderService {
                 );
     }
 
+    public Order getOrderDetails(Long orderId) {
+        return orderRepository.findById(orderId)
+                .orElseThrow(
+                        () -> new ResponseStatusException(HttpStatus.BAD_REQUEST,
+                                "Order with id : " + orderId + " not found!"
+                        )
+                );
+    }
+
     public Order placeOrder(Order order, HttpServletRequest request) {
         // Extract product id from order details and get product from product repository by id and set it to order
         for (int i = 0; i < order.getOrderDetails().size(); i++) {

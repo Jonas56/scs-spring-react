@@ -9,6 +9,8 @@ public interface IOrderService {
 
     Order getOrder(Long orderId);
 
+    Order getOrderDetails(Long orderId);
+
     Order placeOrder(Order order, HttpServletRequest request);
 
     Order updateOrder(Long orderId, Order order, HttpServletRequest request);

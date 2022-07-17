@@ -1,7 +1,6 @@
 package com.scs.nemo.order.dto;
 
-import com.scs.nemo.product.Product;
-import com.scs.nemo.product.dto.ProductForOrderDetails;
+import com.scs.nemo.product.dto.ProductResponseDto;
 import lombok.*;
 
 @Data
@@ -10,7 +9,7 @@ import lombok.*;
 @Getter
 @Setter
 public class OrderDetailsDto {
-    private ProductForOrderDetails product;
+    private ProductResponseDto product;
     private Integer quantity;
     private Long totalPrice;
 }
