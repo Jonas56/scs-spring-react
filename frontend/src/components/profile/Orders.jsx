@@ -1,11 +1,11 @@
 import React from "react";
 import Moment from "moment";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Orders({ orders }) {
   const navigate = useNavigate("");
   const handleOrderDetails = (e) => {
     console.log(e.target.attributes);
-    navigate("/orderDetails/"+e.target.attributes[1].nodeValue);
+    navigate("/orderDetails/" + e.target.attributes[1].nodeValue);
   };
   return (
     <div>
@@ -30,12 +30,12 @@ function Orders({ orders }) {
             {orders?.map((order) => (
               <tr key={order.id}>
                 <td>
-                  <a
-                    href="#/"
+                  <Link
+                    to={`/orderDetails/${order.id}`}
                     className="text-purple-600 hover:text-purple-500"
                   >
                     #{order.orderNumber.substring(0, 10)}
-                  </a>
+                  </Link>
                 </td>
                 <td>{Moment(order.orderDate).format("MMM Do YYYY")}</td>
                 <td>
@@ -62,7 +62,11 @@ function Orders({ orders }) {
                     </svg>
                     Invoice
                   </button>
-                  <button className="btn-primary py-1 px-2 flex items-center" data-id={order.id} onClick={handleOrderDetails}>
+                  <button
+                    className="btn-primary py-1 px-2 flex items-center"
+                    data-id={order.id}
+                    onClick={handleOrderDetails}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-6 w-6 mr-1"
