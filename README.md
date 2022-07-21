@@ -9,12 +9,19 @@ An ecommerce app that allows users to buy smart conected suitcases :luggage:.
 - [React](https://reactjs.org/)
 - [Spring boot](https://spring.io/)
 - [Spring Security](https://spring.io/projects/spring-security)
-- [JUnit5](https://junit.org/)
 - [JWT](https://jwt.io/)
+- [JUnit5](https://junit.org/)
+- [Cypress](https://cypress.io/)
 - [Swagger](https://swagger.io/)
 - [MySQL](https://www.mysql.com/)
 - [Docker](https://www.docker.com/)
 - [Nginx](https://www.nginx.com/)
+
+## Project Architecture
+
+<p align=center>
+    <img src="https://i.postimg.cc/Fsf5zg23/Blank-board-2-1.png" alt="scs-architecture">
+</p>
 
 ## Getting Started :airplane:
 
